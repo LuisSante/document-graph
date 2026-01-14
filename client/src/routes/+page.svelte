@@ -1,7 +1,14 @@
 <script>
+  import PdfSection from '$lib/components/PdfSection.svelte';
+  import ParagraphSection from '$lib/components/ParagraphSection.svelte';
 </script>
 
-<section class="flex flex-col items-center justify-center min-h-screen text-center p-4">
-  <h1 class="text-6xl">Welcome to SvelteKit</h1>
-  <p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
-</section>
+<main class="flex h-screen w-full box-border p-4 gap-4">
+  <section class="flex-1 min-w-0 rounded-lg border border-gray-200 p-4">
+    <PdfSection />
+  </section>
+
+  <section class="flex-1 min-w-0 rounded-lg border border-gray-200 p-4">
+    <ParagraphSection />
+  </section>
+</main>
