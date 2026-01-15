@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from api import documents
 
 app = FastAPI()
 
@@ -16,9 +17,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.include_router(documents.router, prefix="/api")
+
 @app.get("/")
 def home():
     return {"message": "Hola desde FastAPI"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
 
 @app.get("/documents/init")
 def home():
