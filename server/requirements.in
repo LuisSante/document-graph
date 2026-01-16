@@ -5,3 +5,4 @@ PyMuPDF
 fuzzywuzzy
 pandas
 pydantic
+python-Levenshtein

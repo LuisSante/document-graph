@@ -2,10 +2,10 @@
 	import type { DocumentMeta } from '$lib/types/document';
 	import { goto } from '$app/navigation';
 	import { api } from '$lib/api/client';
-	import { currentDocument, paragraphs, loading, error } from '$lib/stores/document';
+	import { currentDocument, paragraphs, loading, error, pdfUrl } from '$lib/stores/document';
+	import { PUBLIC_DEV_LOCAL } from '$env/static/public';
 
 	export let documents: DocumentMeta[];
-
 	let query = '';
 
 	$: filteredDocuments = documents.filter((doc) =>
@@ -13,21 +13,21 @@
 	);
 
 	async function selectDocument(doc: DocumentMeta) {
-		console.log('Selected', doc.id);
 		currentDocument.set(doc);
+		pdfUrl.set(`${PUBLIC_DEV_LOCAL}/${doc.id}/pdf`);
 		loading.set(true);
 		error.set(null);
 		
 		try {
-			// Navigate immediately to analysis page
 			goto('/analysis');
 			
-			// Fetch paragraphs
-			const res = await api.get(`/documents/${doc.id}/paragraphs`);
-			paragraphs.set(res.data);
+			const formData = new FormData();
+			formData.append('document_id', doc.id);
+
+			const res = await api.post('/process', formData);
+			console.log(res);
 		} catch (err) {
-			console.error(err);
-			error.set('Failed to load document');
+			error.set('Error al procesar el documento');
 		} finally {
 			loading.set(false);
 		}
@@ -53,7 +53,7 @@
 					class="w-full text-left px-3 py-2 rounded hover:bg-gray-100 transition cursor-pointer"
 					on:click={() => selectDocument(doc)}
 				>
-					📄 {doc.name}
+					 📄 {doc.name}
 				</button>
 			</li>
 		{/each}

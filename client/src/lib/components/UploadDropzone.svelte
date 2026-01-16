@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { api } from '$lib/api/client';
-	import { currentDocument, paragraphs, loading, error } from '$lib/stores/document';
+	import { currentDocument, paragraphs, loading, error, pdfUrl } from '$lib/stores/document';
 
 	async function handleFile(file: File) {
 		if (file.type !== 'application/pdf') return;
@@ -9,7 +9,9 @@
 		loading.set(true);
 		error.set(null);
 		
-		// Set a temporary document meta
+		const objectUrl = URL.createObjectURL(file);
+		pdfUrl.set(objectUrl);
+		
 		currentDocument.set({
 			id: 'temp',
 			name: file.name,
@@ -23,7 +25,7 @@
 			
 			goto('/analysis');
 
-			const res = await api.post('/documents/upload', formData, {
+			const res = await api.post('/upload', formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				}
