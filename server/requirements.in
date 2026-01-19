@@ -6,3 +6,4 @@ fuzzywuzzy
 pandas
 pydantic
 python-Levenshtein
+sentence-transformers

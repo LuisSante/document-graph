@@ -11,7 +11,7 @@ class Paragraph(BaseModel):
     id: str
     documentId: str
     page: int
-    order: int
+    paragraph_enum: int
     text: str
     bbox: List[float]  # [x0, y0, x1, y1]
     relationsCount: int = 0

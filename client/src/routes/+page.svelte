@@ -6,7 +6,6 @@
 	let { data } = $props();
 	const documents: DocumentMeta[] = data.documents;
 
-	console.log('Loaded documents:', documents);
 </script>
 
 <main class="min-h-screen bg-gray-50 flex flex-col items-center justify-center px-6">

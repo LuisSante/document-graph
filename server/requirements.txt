@@ -16,22 +16,44 @@ click==8.3.1
     # via uvicorn
 fastapi==0.127.0
     # via -r requirements.in
+fuzzywuzzy==0.18.0
+    # via -r requirements.in
 h11==0.16.0
     # via uvicorn
 httptools==0.7.1
     # via uvicorn
 idna==3.11
     # via anyio
+levenshtein==0.27.3
+    # via python-levenshtein
+numpy==2.4.1
+    # via pandas
+pandas==2.3.3
+    # via -r requirements.in
 pydantic==2.12.5
-    # via fastapi
+    # via
+    #   -r requirements.in
+    #   fastapi
 pydantic-core==2.41.5
     # via pydantic
+pymupdf==1.26.7
+    # via -r requirements.in
+python-dateutil==2.9.0.post0
+    # via pandas
 python-dotenv==1.2.1
     # via uvicorn
+python-levenshtein==0.27.3
+    # via -r requirements.in
 python-multipart==0.0.21
     # via -r requirements.in
+pytz==2025.2
+    # via pandas
 pyyaml==6.0.3
     # via uvicorn
+rapidfuzz==3.14.3
+    # via levenshtein
+six==1.17.0
+    # via python-dateutil
 starlette==0.50.0
     # via fastapi
 typing-extensions==4.15.0
@@ -44,6 +66,8 @@ typing-extensions==4.15.0
     #   typing-inspection
 typing-inspection==0.4.2
     # via pydantic
+tzdata==2025.3
+    # via pandas
 uvicorn[standard]==0.40.0
     # via -r requirements.in
 uvloop==0.22.1

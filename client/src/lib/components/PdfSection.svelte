@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onDestroy } from 'svelte';
-    import { pdfUrl } from '$lib/stores/document';
+    import { pdfUrl, paragraphs, selectedParagraph } from '$lib/stores/document';
     import * as pdfjsLib from 'pdfjs-dist';
     // @ts-ignore
     import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
@@ -12,9 +12,32 @@
     let pdfDoc: pdfjsLib.PDFDocumentProxy | null = null;
     let pages: number[] = [];
     let loadTask: any = null;
+    let pageNodes: (HTMLCanvasElement | null)[] = [];
 
     $: if ($pdfUrl) {
         loadDocument($pdfUrl);
+    }
+
+    function drawBoundingBoxes(pageNum: number) {
+        const canvas = pageNodes[pageNum - 1];
+        if (!canvas || !pdfDoc) return;
+        const context = canvas.getContext('2d');
+        if (!context) return;
+
+        $paragraphs.forEach(p => {
+            if (p.page === pageNum) {
+                const [x1, y1, x2, y2] = p.bbox;
+                
+                if ($selectedParagraph && $selectedParagraph.id === p.id) {
+                    context.strokeStyle = 'rgba(255, 215, 0, 1)'; // Gold for selected
+                    context.lineWidth = 2;
+                } else {
+                    context.strokeStyle = 'rgba(0, 0, 255, 0.5)'; // Blue for others
+                    context.lineWidth = 1;
+                }
+                context.strokeRect(x1, y1, x2 - x1, y2 - y1);
+            }
+        });
     }
 
     async function loadDocument(url: string) {
@@ -44,8 +67,29 @@
         }
     }
 
+    function handlePageClick(event: MouseEvent, pageNum: number) {
+        const canvas = pageNodes[pageNum - 1];
+        if (!canvas) return;
+
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        const clickedParagraph = $paragraphs.find(p => {
+            if (p.page !== pageNum) return false;
+            
+            const [x1, y1, x2, y2] = p.bbox;
+            return x >= x1 && x <= x2 && y >= y1 && y <= y2;
+        });
+
+        if (clickedParagraph) {
+            $selectedParagraph = clickedParagraph;
+        }
+    }
+
     function renderPage(node: HTMLCanvasElement, pageNum: number) {
         let renderTask: any = null;
+        pageNodes[pageNum - 1] = node;
 
         async function render() {
             if (!pdfDoc) return;
@@ -67,6 +111,8 @@
                     
                     renderTask = page.render(renderContext as any);
                     await renderTask.promise;
+
+                    drawBoundingBoxes(pageNum);
                 }
             } catch (err: any) {
                 if (err.name !== 'RenderingCancelledException') {
@@ -78,12 +124,45 @@
         render();
 
         return {
+            update() {
+                render();
+            },
             destroy() {
                 if (renderTask) {
                     renderTask.cancel();
                 }
             }
         };
+    }
+
+    $: if(pdfDoc && $paragraphs) {
+        pages.forEach(pageNum => {
+            const canvas = pageNodes[pageNum - 1];
+            if (canvas) {
+                // The action will re-render when paragraphs change, but we need to trigger update for selected paragraph
+            }
+        });
+    }
+
+    $: if ($selectedParagraph && pageNodes.length > 0) {
+        pages.forEach(pageNum => {
+            const canvas = pageNodes[pageNum - 1];
+            if(canvas){
+                const context = canvas.getContext('2d');
+                if(context && pdfDoc){
+                    pdfDoc.getPage(pageNum).then(page => {
+                        const viewport = page.getViewport({ scale: 1.5 });
+                        const renderContext = {
+                            canvasContext: context,
+                            viewport: viewport
+                        };
+                        page.render(renderContext as any).promise.then(() => {
+                            drawBoundingBoxes(pageNum);
+                        });
+                    });
+                }
+            }
+        });
     }
 
     onDestroy(() => {
@@ -113,8 +192,8 @@
 
     {#if pdfDoc}
         {#each pages as pageNum (pageNum)}
-            <div class="shadow-lg bg-white">
-                <canvas use:renderPage={pageNum}></canvas>
+            <div class="shadow-lg bg-white relative">
+                <canvas use:renderPage={pageNum} on:click={(e) => handlePageClick(e, pageNum)}></canvas>
             </div>
         {/each}
     {/if}

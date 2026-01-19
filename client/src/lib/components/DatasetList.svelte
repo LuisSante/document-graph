@@ -20,14 +20,19 @@
 		
 		try {
 			goto('/analysis');
-			
+
 			const formData = new FormData();
 			formData.append('document_id', doc.id);
 
 			const res = await api.post('/process', formData);
-			console.log(res);
+			if (res.data && res.data.nodes) {
+				console.log('Setting paragraphs:', res.data.nodes);
+				paragraphs.set(res.data.nodes);
+			} else {
+				paragraphs.set([]);
+			}
 		} catch (err) {
-			error.set('Error al procesar el documento');
+			error.set('Error processing document');
 		} finally {
 			loading.set(false);
 		}
