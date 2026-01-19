@@ -1,18 +1,36 @@
 <script lang="ts">
-	import { selectedParagraph } from '$lib/stores/document';
-	import type { Paragraph } from '$lib/types/document';
+	import { selectedParagraph, paragraphs, relations } from '$lib/stores/document';
+	import type { Paragraph, ParagraphRelation } from '$lib/types/document';
 
 	let relatedParagraphs: (Paragraph & { relationType: 'reference' | 'semantic_similarity' })[] = [];
 
-	async function fetchRelatedParagraphs(paragraph: Paragraph | null) {
+	function fetchRelatedParagraphs(
+		paragraph: Paragraph | null,
+		allParagraphs: Paragraph[],
+		allRelations: ParagraphRelation[]
+	) {
 		if (!paragraph) {
 			relatedParagraphs = [];
 			return;
 		}
 
+		relatedParagraphs = allRelations
+			.filter((r) => r.source === paragraph.id || r.target === paragraph.id)
+			.map((r) => {
+				const targetId = r.source === paragraph.id ? r.target : r.source;
+				const targetParagraph = allParagraphs.find((p) => p.id === targetId);
+
+				if (!targetParagraph) return null;
+
+				return {
+					...targetParagraph,
+					relationType: r.type
+				};
+			})
+			.filter((p): p is Paragraph & { relationType: 'reference' | 'semantic_similarity' } => p !== null);
 	}
 
-	$: fetchRelatedParagraphs($selectedParagraph);
+	$: fetchRelatedParagraphs($selectedParagraph, $paragraphs, $relations);
 </script>
 
 <section class="h-full overflow-y-auto p-4">

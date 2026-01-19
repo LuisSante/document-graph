@@ -6,6 +6,8 @@
     import pdfWorker from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
     pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
+    
+    const scale = 1.5;
 
     let loading = false;
     let error: string | null = null;
@@ -35,7 +37,7 @@
                     context.strokeStyle = 'rgba(0, 0, 255, 0.5)'; // Blue for others
                     context.lineWidth = 1;
                 }
-                context.strokeRect(x1, y1, x2 - x1, y2 - y1);
+                context.strokeRect(x1 * scale, y1 * scale, (x2 - x1) * scale, (y2 - y1) * scale);
             }
         });
     }
@@ -79,7 +81,7 @@
             if (p.page !== pageNum) return false;
             
             const [x1, y1, x2, y2] = p.bbox;
-            return x >= x1 && x <= x2 && y >= y1 && y <= y2;
+            return x >= x1 * scale && x <= x2 * scale && y >= y1 * scale && y <= y2 * scale;
         });
 
         if (clickedParagraph) {
@@ -96,7 +98,7 @@
 
             try {
                 const page = await pdfDoc.getPage(pageNum);
-                const viewport = page.getViewport({ scale: 1.5 });
+                const viewport = page.getViewport({ scale: scale });
                 
                 node.height = viewport.height;
                 node.width = viewport.width;
@@ -151,7 +153,7 @@
                 const context = canvas.getContext('2d');
                 if(context && pdfDoc){
                     pdfDoc.getPage(pageNum).then(page => {
-                        const viewport = page.getViewport({ scale: 1.5 });
+                        const viewport = page.getViewport({ scale: scale });
                         const renderContext = {
                             canvasContext: context,
                             viewport: viewport

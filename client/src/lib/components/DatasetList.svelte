@@ -2,7 +2,7 @@
 	import type { DocumentMeta } from '$lib/types/document';
 	import { goto } from '$app/navigation';
 	import { api } from '$lib/api/client';
-	import { currentDocument, paragraphs, loading, error, pdfUrl } from '$lib/stores/document';
+	import { currentDocument, paragraphs, loading, error, pdfUrl, selectedParagraph } from '$lib/stores/document';
 	import { PUBLIC_DEV_LOCAL } from '$env/static/public';
 
 	export let documents: DocumentMeta[];
@@ -17,17 +17,20 @@
 		pdfUrl.set(`${PUBLIC_DEV_LOCAL}/${doc.id}/pdf`);
 		loading.set(true);
 		error.set(null);
+		selectedParagraph.set(null);
 		
 		try {
-			goto('/analysis');
-
 			const formData = new FormData();
 			formData.append('document_id', doc.id);
-
+			
 			const res = await api.post('/process', formData);
 			if (res.data && res.data.nodes) {
 				console.log('Setting paragraphs:', res.data.nodes);
+				
 				paragraphs.set(res.data.nodes);
+			
+				goto('/analysis');
+			
 			} else {
 				paragraphs.set([]);
 			}
