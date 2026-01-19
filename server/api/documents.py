@@ -5,6 +5,7 @@ from schemas.document import DatasetDocument, Paragraph
 from schemas.graph import Graph
 from utils.pdf_reader import PDFReader
 from utils.relations import generate_graph_data
+from utils.document_store import DocumentStore
 import logging
 import shutil
 import tempfile
@@ -14,50 +15,29 @@ import uuid
 router = APIRouter()
 logger = logging.getLogger(__name__)
 
-CUAD_PDF_DIR = Path("../infra/CUAD_v1/full_contract_pdf")
 pdf_reader = PDFReader()
 
-
-def iter_pdfs(base_dir: Path):
-    return (
-        p for p in base_dir.rglob("*")
-        if p.is_file() and p.suffix.lower() == ".pdf"
-    )
+document_store = DocumentStore()
 
 @router.get("/list_documents", response_model=list[DatasetDocument])
 def list_documents():
-    if not CUAD_PDF_DIR.exists():
-        raise HTTPException(status_code=500, detail="Dataset directory not found")
-
-    documents: list[DatasetDocument] = []
-
-    for pdf_path in iter_pdfs(CUAD_PDF_DIR):
-        documents.append(
-            DatasetDocument(
-                id=pdf_path.stem,
-                name=pdf_path.name,
-                origin="dataset",
-                processed=False
-            )
-        )
-
-    return documents
+    if not document_store._initialized:
+        document_store.initialize()
+    return document_store.get_documents()
 
 
 @router.get("/{document_id}/pdf")
 def get_document_pdf(document_id: str):
     logger.info(f"Fetching PDF for document ID: {document_id}")
 
-    if not CUAD_PDF_DIR.exists():
-        raise HTTPException(status_code=500, detail="Dataset directory not found")
+    pdf_path = document_store.get_path(document_id)
 
-    for pdf_path in iter_pdfs(CUAD_PDF_DIR):
-        if pdf_path.stem == document_id:
-            return FileResponse(
-                path=pdf_path,
-                media_type="application/pdf",
-                filename=pdf_path.name
-            )
+    if pdf_path and pdf_path.exists():
+        return FileResponse(
+            path=pdf_path,
+            media_type="application/pdf",
+            filename=pdf_path.name
+        )
 
     raise HTTPException(status_code=404, detail="Document not found")
 
@@ -79,11 +59,7 @@ async def process_document(
                 tmp_path = tmp.name
 
         else:
-            pdf_path = None
-            for path in iter_pdfs(CUAD_PDF_DIR):
-                if path.stem == document_id:
-                    pdf_path = path
-                    break
+            pdf_path = document_store.get_path(document_id)
 
             if not pdf_path:
                 raise HTTPException(

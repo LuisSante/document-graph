@@ -1,12 +1,19 @@
 import logging
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
 from api import documents
 
-app = FastAPI()
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Initialize the document store on startup
+    documents.document_store.initialize()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 origins = [
     "http://localhost:5173", 
