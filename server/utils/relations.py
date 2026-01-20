@@ -86,7 +86,6 @@ def generate_graph_data(paragraphs: list) -> dict:
     edges = []
     
     for p in paragraphs:
-        logger.info(f"{p}\n\n")
         nodes.append({
             "id": p.id,
             "documentId": p.documentId,
@@ -96,9 +95,21 @@ def generate_graph_data(paragraphs: list) -> dict:
             "bbox": p.bbox,
             "relationsCount": p.relationsCount
         })
+    
+    logger.info(f"TOTAL PARAGRAPH {len(paragraphs)}\n\n")
+    logger.info(f"TOTAL NODES {len(nodes)}\n\n")
 
     for i in range(len(nodes)):      
-        ref_match = re.search(r'[Ss]ection\s+(\d+(\.\d+)*)', nodes[i]["text"])
+        #text = "See Section 3.2.1 for details"
+        
+        # Hierarchical pattern: captures sections with sublevels
+        ref_match = re.search(r'[Ss]ection\s+(\d+(\.\d+)*)', nodes[i]["text"])        
+        # ref_match.group(1) -> "3.2.1"
+
+        # Simple pattern: only captures the main number
+        # ref_match = re.search(r'[Ss]ection\s+(\d+)', nodes[i]["text"])
+        # ref_match.group(1) -> "3"
+
         if ref_match:
             section_num = ref_match.group(1)
             for target_node in nodes:
@@ -115,12 +126,21 @@ def generate_graph_data(paragraphs: list) -> dict:
 
         for i in range(len(nodes)):
             for j in range(i + 1, len(nodes)):
-                if cosine_scores[i][j] > 0.9: # Threshold for similarity
+                if cosine_scores[i][j] > 0.8: # Threshold for similarity
                     edges.append({
                         "source": nodes[i]["id"], 
                         "target": nodes[j]["id"], 
                         "type": "semantic_similarity", 
                         "score": float(cosine_scores[i][j])
                     })
+
+    relations_map = {}
+    for edge in edges:
+        s, t = edge['source'], edge['target']
+        relations_map[s] = relations_map.get(s, 0) + 1
+        relations_map[t] = relations_map.get(t, 0) + 1
+    
+    for node in nodes:
+        node["relationsCount"] = relations_map.get(node["id"], 0)
 
     return {"nodes": nodes, "edges": edges}

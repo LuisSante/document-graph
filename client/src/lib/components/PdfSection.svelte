@@ -38,6 +38,30 @@
                     context.lineWidth = 1;
                 }
                 context.strokeRect(x1 * scale, y1 * scale, (x2 - x1) * scale, (y2 - y1) * scale);
+
+                // Draw relations count
+                if (p.relationsCount > 0) {
+                    const text = p.relationsCount.toString();
+                    // Increased font size
+                    context.font = 'bold 16px Arial';
+                    const textWidth = context.measureText(text).width;
+                    
+                    // Increased padding and specific dimensions
+                    const bgPadding = 8;
+                    const boxHeight = 26;
+                    const boxX = (x2 * scale) + 2;
+                    // Center vertically relative to the top of the paragraph, or just slight offset
+                    const boxY = (y1 * scale);
+                    
+                    // Draw background for text (larger box)
+                    context.fillStyle = 'rgba(255, 0, 0, 0.7)';
+                    context.fillRect(boxX, boxY, textWidth + (bgPadding * 2), boxHeight);
+                    
+                    // Draw text (centered in Y)
+                    context.fillStyle = 'white';
+                    context.textBaseline = 'middle';
+                    context.fillText(text, boxX + bgPadding, boxY + (boxHeight / 2));
+                }
             }
         });
     }
