@@ -2,7 +2,14 @@
 	import type { DocumentMeta } from '$lib/types/document';
 	import { goto } from '$app/navigation';
 	import { api } from '$lib/api/client';
-	import { currentDocument, paragraphs, loading, error, pdfUrl, selectedParagraph } from '$lib/stores/document';
+	import { 
+		currentDocument, 
+		paragraphs, 
+		loading, 
+		error, 
+		pdfUrl, 
+		relations 
+	} from '$lib/stores/document';
 	import { PUBLIC_DEV_LOCAL } from '$env/static/public';
 
 	export let documents: DocumentMeta[];
@@ -17,7 +24,6 @@
 		pdfUrl.set(`${PUBLIC_DEV_LOCAL}/${doc.id}/pdf`);
 		loading.set(true);
 		error.set(null);
-		selectedParagraph.set(null);
 		
 		try {
 			const formData = new FormData();
@@ -25,9 +31,10 @@
 			
 			const res = await api.post('/process', formData);
 			if (res.data && res.data.nodes) {
-				console.log('Setting paragraphs:', res.data.nodes);
+				console.log('Setting paragraphs:', res.data.edges);
 				
 				paragraphs.set(res.data.nodes);
+				relations.set(res.data.edges || []);
 			
 				goto('/analysis');
 			

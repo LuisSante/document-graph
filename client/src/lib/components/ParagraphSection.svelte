@@ -1,5 +1,9 @@
 <script lang="ts">
-	import { selectedParagraph, paragraphs, relations } from '$lib/stores/document';
+	import { 
+		selectedParagraph, 
+		paragraphs, 
+		relations 
+	} from '$lib/stores/document';
 	import type { Paragraph, ParagraphRelation } from '$lib/types/document';
 
 	let relatedParagraphs: (Paragraph & { relationType: 'reference' | 'semantic_similarity' })[] = [];
@@ -14,6 +18,7 @@
 			return;
 		}
 
+		console.log('All Relations:', allRelations);
 		relatedParagraphs = allRelations
 			.filter((r) => r.source === paragraph.id || r.target === paragraph.id)
 			.map((r) => {
