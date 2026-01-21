@@ -569,7 +569,7 @@ class PDFReader:
             if clean_text in similar_texts or num_paragraph in repeatd_ids:
                 continue
                 
-            is_similar = df.text_wo_numbers.apply(lambda x: fuzz.ratio(text_wo_numbers, x) > 90)
+            is_similar = df.text_wo_numbers.apply(lambda x: fuzz.token_set_ratio(text_wo_numbers, x) > 90)
             num_repetitions = int(np.sum(is_similar.tolist()))
             
             if self.MAX_PARAGRAPH_REPETITIONS <= num_repetitions:
