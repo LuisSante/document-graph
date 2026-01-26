@@ -6,7 +6,7 @@ import numpy as np
 from fuzzywuzzy import fuzz
 
 class PDFReader:
-    def __init__(self, MIN_WORDS_PER_PARAGRAPH = 20,
+    def __init__(self, MIN_WORDS_PER_PARAGRAPH = 10, ##20
                        MAX_PARAGRAPH_REPETITIONS = 3,
                        LINE_GAP = 20,
                        TAP_GAP = 5,

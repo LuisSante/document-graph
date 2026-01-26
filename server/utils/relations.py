@@ -83,6 +83,8 @@ def create_nodes(text):
 def generate_graph_data(paragraphs: list) -> dict:
     # BELLICUMPHARMACEUTICALS,INC_05_07_2019-EX-10.1-Supply Agreement
     model = SentenceTransformer('all-MiniLM-L6-v2')
+
+    ## EXPLAIN WHY ?
     nodes = []
     edges = []
     
