@@ -29,12 +29,32 @@ class PDFReader:
         df_lines = self.filter_lines(df_lines)
         df_paragraphs = self.set_paragraphs_intelligent(df_lines)
         df_paragraphs = self.filter_paragraphs(df_paragraphs)
-        return df_paragraphs
+        return df_paragraphs, df_lines
         
     ############################################
     ###             Read PDF                 ###
     ############################################
     
+    def get_text_bbox(self, full_text, evidence_snippet, df_lines, page_num):
+        if not evidence_snippet or evidence_snippet.strip() == "":
+            return None
+
+        page_lines = df_lines[df_lines['page'] == page_num].copy()
+        matching_lines = []
+        for _, line in page_lines.iterrows():
+            if line['text'] in evidence_snippet or evidence_snippet in line['text']:
+                matching_lines.append([line['x0'], line['y0'], line['x1'], line['y1']])
+        
+        if not matching_lines:
+            return None
+
+        x0 = min(box[0] for box in matching_lines)
+        y0 = min(box[1] for box in matching_lines)
+        x1 = max(box[2] for box in matching_lines)
+        y1 = max(box[3] for box in matching_lines)
+
+        return [x0, y0, x1, y1]
+
     def _allowed_file(self, filename):
         return "." in filename and filename.rsplit(".", 1)[1].lower() in self.ALLOWED_EXTENSIONS
 

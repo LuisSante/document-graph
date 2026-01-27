@@ -70,7 +70,17 @@ async def process_document(
 
             tmp_path = str(pdf_path)
 
-        df = pdf_reader.PDF_to_dataframe(tmp_path)
+        df_paragraphs, df_lines = pdf_reader.PDF_to_dataframe(tmp_path)
+
+        logger.info("\n\n\n\n\n")
+
+        logger.info(df_paragraphs)
+
+        logger.info("\n\n\n\n\n")
+
+        logger.info(df_lines)
+
+        logger.info("\n\n\n\n\n")
 
         paragraphs = [
             Paragraph(
@@ -86,16 +96,17 @@ async def process_document(
                     float(row["y1"]),
                 ],
             )
-            for index, row in df.iterrows()
+            for index, row in df_paragraphs.iterrows()
         ]
 
         graph_data = generate_graph_data(paragraphs)
 
         id2text = {n["id"]: n["text"] for n in graph_data["nodes"]}
+        
         raw_candidates = []
         for e in graph_data["edges"]:
             et = e.get("type", "")
-            if not (et.startswith("reference:") or et == "semantic_similarity"):
+            if not (et.startswith("reference") or et == "semantic_similarity"):
                 continue
 
             a = id2text.get(e["source"], "")
@@ -114,23 +125,38 @@ async def process_document(
 
         ranked = postfilter_and_rank(raw_candidates)
 
-        graph_data["contradictions"] = [
-            Contradiction(
-                source=c["source"],
-                target=c["target"],
-                type=c["result"].get("type", "other"),
-                confidence=float(c["result"].get("confidence", 0.0)),
-                edge_type=c["edge_type"],
-                edge_score=c.get("edge_score"),
-                evidence_a=c["result"].get("evidence", {}).get("a", "") or "",
-                evidence_b=c["result"].get("evidence", {}).get("b", "") or "",
-                summary=c["result"].get("summary", "") or "",
-                score=float(c.get("final_score", 0.0)),
-            ).model_dump()
-            for c in ranked
-        ]
+        final_contradictions = []
+        for c in ranked:
+            source_node = next(n for n in paragraphs if n.id == c["source"])
+            target_node = next(n for n in paragraphs if n.id == c["target"])
+            
+            ev_a = c["result"].get("evidence", {}).get("source", "")
+            ev_b = c["result"].get("evidence", {}).get("target", "")
 
-        return Graph(**graph_data)
+            bbox_a = pdf_reader.get_text_bbox(source_node.text, ev_a, df_lines, source_node.page)
+            bbox_b = pdf_reader.get_text_bbox(target_node.text, ev_b, df_lines, target_node.page)
+
+            final_contradictions.append(
+                Contradiction(
+                    source=c["source"],
+                    target=c["target"],
+                    type=c["result"].get("type", "other"),
+                    confidence=float(c["result"].get("confidence", 0.0)),
+                    edge_type=c["edge_type"],
+                    edge_score=c.get("edge_score"),
+                    evidence_a=ev_a,
+                    evidence_b=ev_b,
+                    evidence_a_bbox=bbox_a,
+                    evidence_b_bbox=bbox_b,
+                    evidence_a_page=source_node.page,
+                    evidence_b_page=target_node.page,
+                    summary=c["result"].get("summary", ""),
+                    score=float(c.get("final_score", 0.0)),
+                )
+            )
+
+        graph_data["contradictions"] = [c.model_dump() for c in final_contradictions]
+        return Graph(**graph_data)  
 
     finally:
         if file and tmp_path and os.path.exists(tmp_path):

@@ -40,8 +40,8 @@ Return JSON with:
   "type": "...",
   "confidence": 0.0-1.0,
   "evidence": {{
-     "a": "exact snippet from A or empty",
-     "b": "exact snippet from B or empty"
+     "source": "exact snippet from A or empty",
+     "target": "exact snippet from B or empty"
   }},
   "summary": "one-line reason"
 }}
@@ -66,7 +66,7 @@ def rank_score(result: dict, edge_type: str, sim_score: Optional[float]) -> floa
     t = str(result.get("type", "other")).lower()
     pri = TYPE_PRIORITY.get(t, 1)
 
-    bonus_ref = 0.10 if edge_type.startswith("reference:") else 0.0
+    bonus_ref = 0.10 if edge_type.startswith("reference") else 0.0
     bonus_sim = 0.05 if (edge_type == "semantic_similarity" and (sim_score or 0) > 0.85) else 0.0
 
     return base + 0.05 * pri + bonus_ref + bonus_sim

@@ -16,3 +16,5 @@ spacy
 openai
 datasets 
 tqdm 
+
+# pip install --upgrade pyarrow datasets
