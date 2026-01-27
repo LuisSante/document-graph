@@ -1,8 +1,8 @@
 from sentence_transformers import SentenceTransformer, util
 from collections import Counter
+from .static import REFERENCE_PATTERNS
 
 import json
-import re
 import os
 import logging
 
@@ -102,26 +102,24 @@ def generate_graph_data(paragraphs: list) -> dict:
     logger.info(f"TOTAL PARAGRAPH {len(paragraphs)}\n\n")
     logger.info(f"TOTAL NODES {len(nodes)}\n\n")
 
-    for i in range(len(nodes)):      
-        #text = "See Section 3.2.1 for details"
+    for i in range(len(nodes)):
+        current_text = nodes[i]["text"]
         
-        # Hierarchical pattern: captures sections with sublevels
-        ref_match = re.search(r'[Ss]ection\s+(\d+(\.\d+)*)', nodes[i]["text"])        
-        # ref_match.group(1) -> "3.2.1"
-
-        # Simple pattern: only captures the main number
-        # ref_match = re.search(r'[Ss]ection\s+(\d+)', nodes[i]["text"])
-        # ref_match.group(1) -> "3"
-
-        if ref_match:
-            section_num = ref_match.group(1)
-            for target_node in nodes:
-                if target_node["text"].strip().startswith(f"{section_num}"):
-                    edges.append({
+        for ref_type, pattern in REFERENCE_PATTERNS:
+            matches = pattern.finditer(current_text)
+            
+            for match in matches:
+                ref_id = match.group(1)
+                
+                for target_node in nodes:
+                    if target_node["id"] != nodes[i]["id"] and target_node["text"].startswith(ref_id):
+                        edges.append({
                             "source": nodes[i]["id"], 
                             "target": target_node["id"], 
-                            "type": "reference"
-                    })
+                            "type": "reference",
+                            "ref_label": ref_type,
+                            "ref_value": ref_id
+                        })
 
     if nodes:
         embeddings = model.encode([n["text"] for n in nodes], convert_to_tensor=True)

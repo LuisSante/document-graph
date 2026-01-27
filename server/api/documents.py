@@ -1,11 +1,12 @@
 from fastapi import APIRouter, HTTPException, UploadFile, File, Form
 from fastapi.responses import FileResponse
-from pathlib import Path
 from schemas.document import DatasetDocument, Paragraph
 from schemas.graph import Graph
 from utils.pdf_reader import PDFReader
 from utils.relations import generate_graph_data
 from utils.document_store import DocumentStore
+from schemas.contradiction import Contradiction
+from utils.contradictions import classify_contradiction, postfilter_and_rank
 import logging
 import shutil
 import tempfile
@@ -89,6 +90,46 @@ async def process_document(
         ]
 
         graph_data = generate_graph_data(paragraphs)
+
+        id2text = {n["id"]: n["text"] for n in graph_data["nodes"]}
+        raw_candidates = []
+        for e in graph_data["edges"]:
+            et = e.get("type", "")
+            if not (et.startswith("reference:") or et == "semantic_similarity"):
+                continue
+
+            a = id2text.get(e["source"], "")
+            b = id2text.get(e["target"], "")
+            if not a or not b:
+                continue
+
+            result = classify_contradiction(a, b, model="gpt-4o-mini")
+            raw_candidates.append({
+                "source": e["source"],
+                "target": e["target"],
+                "edge_type": et,
+                "edge_score": e.get("score"),
+                "result": result
+            })
+
+        ranked = postfilter_and_rank(raw_candidates)
+
+        graph_data["contradictions"] = [
+            Contradiction(
+                source=c["source"],
+                target=c["target"],
+                type=c["result"].get("type", "other"),
+                confidence=float(c["result"].get("confidence", 0.0)),
+                edge_type=c["edge_type"],
+                edge_score=c.get("edge_score"),
+                evidence_a=c["result"].get("evidence", {}).get("a", "") or "",
+                evidence_b=c["result"].get("evidence", {}).get("b", "") or "",
+                summary=c["result"].get("summary", "") or "",
+                score=float(c.get("final_score", 0.0)),
+            ).model_dump()
+            for c in ranked
+        ]
+
         return Graph(**graph_data)
 
     finally:

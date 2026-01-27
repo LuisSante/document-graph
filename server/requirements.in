@@ -7,3 +7,12 @@ pandas
 pydantic
 python-Levenshtein
 sentence-transformers
+python-dotenv
+bert_score
+tiktoken
+transformers
+evaluate
+spacy
+openai
+datasets 
+tqdm 

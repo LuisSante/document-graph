@@ -20,4 +20,6 @@ export interface ParagraphRelation {
 	target: string;
 	type: 'reference' | 'semantic_similarity';
 	score?: number;
+	ref_label?: string;
+	ref_value?: string;
 }
