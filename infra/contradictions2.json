@@ -4917,7 +4917,12 @@
                 544.9501953125,
                 249.0945281982422
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38203430175781,
+                544.9503784179688,
+                457.40704345703125
+            ],
             "evidence_a_page": 16,
             "evidence_b_page": 16,
             "summary": "Paragraph A denies Bellicum access to Master Files, while Paragraph B allows for cross-referencing access.",
@@ -4931,14 +4936,19 @@
             "edge_type": "reference",
             "edge_score": null,
             "evidence_a": "the right to cross-reference to the Master File(s)",
-            "evidence_b": "Bellicum shall have no right to access the Master File(s), or, except as expressly set forth in Section 4.5 supra, to require the disclosure by Miltenyi of any information contained in any Master File",
+            "evidence_b": "Bellicum shall have no right to access the Master File(s), or, except as expressly set forth in Section 4.5 supra, to require the disclosure by Miltenyi of any information contained in any Master File, or to cross-reference or otherwise use the Master File(s) for any purpose other than as expressly provided herein.",
             "evidence_a_bbox": [
                 50.04999923706055,
                 357.66668701171875,
                 544.9501342773438,
                 366.50421142578125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                250.3566436767578,
+                544.9502563476562,
+                269.29473876953125
+            ],
             "evidence_a_page": 28,
             "evidence_b_page": 16,
             "summary": "Paragraph A grants Bellicum the right to cross-reference Master Files, while Paragraph B explicitly denies this right.",
@@ -4959,7 +4969,12 @@
                 544.9501953125,
                 326.10528564453125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                149.35507202148438,
+                546.8433837890625,
+                512.3240356445312
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 38,
             "summary": "Paragraph A allows disclosure of terms, while Paragraph B treats them as confidential.",
@@ -4972,7 +4987,7 @@
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "this Supply Agreement, including Exhibits A, B, C, D, E, F and G",
+            "evidence_a": "this Supply Agreement, including Exhibits A, B, C, D, E, F and G attached hereto and incorporated herein",
             "evidence_b": "this Agreement (including all Exhibits attached hereto, which are incorporated herein by reference, and as amended from time to time in accordance with the provisions hereof)",
             "evidence_a_bbox": [
                 50.04999923706055,
@@ -4980,10 +4995,41 @@
                 544.9500122070312,
                 244.0457000732422
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.37983703613281,
+                544.9505615234375,
+                507.90484619140625
+            ],
             "evidence_a_page": 2,
             "evidence_b_page": 43,
-            "summary": "Paragraph A defines the Agreement with specific exhibits, while Paragraph B implies a broader scope of exhibits without specifying which ones.",
+            "summary": "Paragraph A specifies certain exhibits while Paragraph B implies a broader scope of exhibits without limitation.",
+            "score": 1.25
+        },
+        {
+            "source": "149",
+            "target": "245",
+            "type": "precedence",
+            "confidence": 0.9,
+            "edge_type": "reference",
+            "edge_score": null,
+            "evidence_a": "Miltenyi agrees to sell and Deliver and Bellicum agrees to purchase Miltenyi Products under and in accordance with this Agreement at the Purchase Price listed for each unit of a Miltenyi Product set forth on Exhibit E",
+            "evidence_b": "EXHIBIT D [...***...] Sublicense Royalties and/or Licensee Fees",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                230.1540069580078,
+                544.9497680664062,
+                238.9915008544922
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                142.44850158691406,
+                298.13134765625,
+                151.28599548339844
+            ],
+            "evidence_a_page": 29,
+            "evidence_b_page": 49,
+            "summary": "Paragraph A references Exhibit E for pricing, while Paragraph B introduces Exhibit D, creating a conflict in precedence.",
             "score": 1.25
         },
         {
@@ -5009,7 +5055,33 @@
             ],
             "evidence_a_page": 29,
             "evidence_b_page": 50,
-            "summary": "Paragraph A refers to current list prices while Paragraph B specifies prices from 2019, creating a precedence conflict.",
+            "summary": "Paragraph A refers to current list prices while Paragraph B specifies prices from 2019, creating a conflict in pricing references.",
+            "score": 1.25
+        },
+        {
+            "source": "61",
+            "target": "171",
+            "type": "scope",
+            "confidence": 1.0,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8526830077171326,
+            "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
+            "evidence_b": "Subcontractors shall not have the right to grant sublicenses under Miltenyi Technology",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                180.9174346923828,
+                544.949951171875,
+                189.7549285888672
+            ],
+            "evidence_a_page": 10,
+            "evidence_b_page": 32,
+            "summary": "Paragraph A allows Bellicum to impose obligations on Subcontractors, while Paragraph B restricts Subcontractors from granting sublicenses.",
             "score": 1.25
         },
         {
@@ -5035,7 +5107,7 @@
             ],
             "evidence_a_page": 3,
             "evidence_b_page": 38,
-            "summary": "Paragraph A does not specify a duration for the Initial Term, while Paragraph B explicitly states it is ten (10) years.",
+            "summary": "Paragraph A does not specify a duration, while Paragraph B explicitly states a ten-year term.",
             "score": 1.2000000000000002
         },
         {
@@ -5053,7 +5125,12 @@
                 544.9500732421875,
                 249.7229461669922
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                111.47920227050781,
+                544.950927734375,
+                519.2669067382812
+            ],
             "evidence_a_page": 28,
             "evidence_b_page": 27,
             "summary": "Paragraph A grants exclusive remedies for rejected products, while Paragraph B limits recourse after acceptance.",
@@ -5067,43 +5144,48 @@
             "edge_type": "reference",
             "edge_score": null,
             "evidence_a": "Bellicum’s rights to a refund or credit for, or to receive replacement of, properly rejected shipments of Miltenyi Products hereunder shall be Bellicum’s sole and exclusive remedy",
-            "evidence_b": "Once a Delivery of Miltenyi Products is accepted or deemed accepted hereunder, Bellicum shall have no recourse against Miltenyi",
+            "evidence_b": "Bellicum shall have no recourse against Miltenyi in the event any such Miltenyi Product is subsequently deemed unsuitable for use for any reason",
             "evidence_a_bbox": [
                 50.04999923706055,
                 240.8854522705078,
                 544.9500732421875,
                 249.7229461669922
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                111.47920227050781,
+                544.950927734375,
+                519.2669067382812
+            ],
             "evidence_a_page": 28,
             "evidence_b_page": 27,
             "summary": "Paragraph A grants exclusive remedies for rejected products, while Paragraph B limits recourse after acceptance.",
             "score": 1.2000000000000002
         },
         {
-            "source": "191",
-            "target": "173",
+            "source": "183",
+            "target": "151",
             "type": "scope",
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "In no event shall Miltenyi or its Affiliates be responsible or liable for any non-conformance or other defects in the Miltenyi Product(s)",
-            "evidence_b": "Miltenyi warrants and represents and covenants to Bellicum that Miltenyi Product Delivered hereunder will",
+            "evidence_a": "no agreements between Miltenyi and a Third Party that would impose any payment obligation on Bellicum",
+            "evidence_b": "Discount, as applicable to a particular Miltenyi Product in a Calendar Year, shall be based on Bellicum’s and its Subcontractors’ and Licensees’ consolidated volume purchases",
             "evidence_a_bbox": [
                 50.04999923706055,
-                228.2599639892578,
-                544.9501953125,
-                237.0974578857422
+                160.7172393798828,
+                544.9500732421875,
+                326.10479736328125
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                211.2174835205078,
-                169.35633850097656,
-                365.87384033203125
+                269.29168701171875,
+                544.9495239257812,
+                278.12921142578125
             ],
-            "evidence_a_page": 34,
-            "evidence_b_page": 32,
-            "summary": "Paragraph A limits liability while Paragraph B asserts a warranty.",
+            "evidence_a_page": 33,
+            "evidence_b_page": 29,
+            "summary": "Paragraph A states no payment obligations exist, while Paragraph B implies payment obligations based on purchase volumes.",
             "score": 1.2000000000000002
         },
         {
@@ -5129,7 +5211,7 @@
             ],
             "evidence_a_page": 34,
             "evidence_b_page": 33,
-            "summary": "Paragraph A limits Miltenyi's warranty scope, while Paragraph B implies additional warranties.",
+            "summary": "Paragraph A limits Miltenyi's warranty scope, while Paragraph B implies a warranty exists.",
             "score": 1.2000000000000002
         },
         {
@@ -5141,11 +5223,21 @@
             "edge_score": null,
             "evidence_a": "Bellicum shall have no recourse against Miltenyi in the event any such Miltenyi Product is subsequently deemed unsuitable for use for any reason",
             "evidence_b": "Miltenyi’s sole obligation, and Bellicum’s sole and exclusive remedy for breach of the Miltenyi Product Warranty",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                179.0226593017578,
+                544.9508056640625,
+                515.4788208007812
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                111.47920227050781,
+                544.950927734375,
+                519.2669067382812
+            ],
             "evidence_a_page": 34,
             "evidence_b_page": 27,
-            "summary": "Paragraph A grants Bellicum a remedy for breach, while Paragraph B limits recourse after acceptance.",
+            "summary": "Paragraph A grants Bellicum remedies for breach, while Paragraph B limits recourse after acceptance.",
             "score": 1.2000000000000002
         },
         {
@@ -5171,7 +5263,7 @@
             ],
             "evidence_a_page": 37,
             "evidence_b_page": 37,
-            "summary": "Paragraph A states no obligations for the Receiving Party, while Paragraph B imposes obligations on Miltenyi and Bellicum.",
+            "summary": "Paragraph A exempts the Receiving Party from obligations, while Paragraph B imposes obligations on both parties.",
             "score": 1.2000000000000002
         },
         {
@@ -5189,10 +5281,15 @@
                 544.9505004882812,
                 398.06756591796875
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                546.8433837890625,
+                533.1555786132812
+            ],
             "evidence_a_page": 37,
             "evidence_b_page": 38,
-            "summary": "Paragraph A exempts the Receiving Party from obligations under certain conditions, while Paragraph B imposes obligations on both Parties regarding confidentiality.",
+            "summary": "Paragraph A exempts the Receiving Party from obligations, while Paragraph B imposes obligations on both Parties.",
             "score": 1.2000000000000002
         },
         {
@@ -5210,10 +5307,15 @@
                 544.9505004882812,
                 398.06756591796875
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                544.9505615234375,
+                533.1555786132812
+            ],
             "evidence_a_page": 37,
             "evidence_b_page": 38,
-            "summary": "Paragraph A states no obligations for the Receiving Party, while Paragraph B allows the Disclosing Party to seek remedies for violations.",
+            "summary": "Paragraph A limits obligations while Paragraph B asserts entitlement to remedies for violations.",
             "score": 1.2000000000000002
         },
         {
@@ -5223,13 +5325,13 @@
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "each Party may disclose the terms of this Agreement",
+            "evidence_a": "(i) in connection with the requirements of an initial public offering or securities filing; (ii) in confidence, to accountants, attorneys, other professional advisors, banks, and financing sources and their advisors; (iii) in confidence, in connection with the enforcement of this Agreement or rights under this Agreement; or (iv) in confidence, in connection with a merger or acquisition or proposed merger or acquisition, or a sale or proposed sale of its assets or business, or the like.",
             "evidence_b": "each of Miltenyi and Bellicum shall keep Confidential",
             "evidence_a_bbox": [
                 50.04999923706055,
-                317.26776123046875,
-                544.9501953125,
-                326.10528564453125
+                327.99920654296875,
+                544.9502563476562,
+                367.13653564453125
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
@@ -5239,7 +5341,7 @@
             ],
             "evidence_a_page": 38,
             "evidence_b_page": 37,
-            "summary": "Paragraph A allows disclosure while Paragraph B mandates confidentiality.",
+            "summary": "Paragraph A allows disclosures under certain conditions, while Paragraph B mandates confidentiality.",
             "score": 1.2000000000000002
         },
         {
@@ -5265,7 +5367,7 @@
             ],
             "evidence_a_page": 38,
             "evidence_b_page": 37,
-            "summary": "Paragraph A allows disclosure of the agreement terms, while Paragraph B states a Receiving Party has no obligations regarding certain information.",
+            "summary": "Paragraph A allows disclosure of the agreement terms, while Paragraph B states the Receiving Party has no obligations regarding certain information.",
             "score": 1.2000000000000002
         },
         {
@@ -5276,7 +5378,7 @@
             "edge_type": "reference",
             "edge_score": null,
             "evidence_a": "Notwithstanding the provisions of this Article 14",
-            "evidence_b": "the provisions of this Article 14 are necessary for the protection",
+            "evidence_b": "the provisions of this Article 14 are necessary for the protection of the business and goodwill of the Parties",
             "evidence_a_bbox": [
                 50.04999923706055,
                 149.35507202148438,
@@ -5285,9 +5387,9 @@
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                425.84295654296875,
-                544.94970703125,
-                434.68048095703125
+                149.35507202148438,
+                544.9505615234375,
+                465.61163330078125
             ],
             "evidence_a_page": 38,
             "evidence_b_page": 38,
@@ -5303,11 +5405,21 @@
             "edge_score": null,
             "evidence_a": "any violation of this Article 14 by it or its Affiliate, or Subcontractors may cause substantial and irreparable harm",
             "evidence_b": "a Receiving Party shall have no obligations under this Article 14 with regard to any information of the Disclosing Party",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                149.35507202148438,
+                544.9501953125,
+                465.61163330078125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                119.05506896972656,
+                544.9505004882812,
+                519.8988647460938
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 37,
-            "summary": "Paragraph A imposes obligations for violations, while Paragraph B states there are no obligations under certain conditions.",
+            "summary": "Paragraph A imposes obligations on the Receiving Party, while Paragraph B states exceptions that negate those obligations.",
             "score": 1.2000000000000002
         },
         {
@@ -5319,11 +5431,21 @@
             "edge_score": null,
             "evidence_a": "any violation of this Article 14 by it or its Affiliate, or Subcontractors may cause substantial and irreparable harm",
             "evidence_b": "a Receiving Party shall have no obligations under this Article 14 with regard to any information of the Disclosing Party",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                149.35507202148438,
+                544.9501953125,
+                465.61163330078125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                119.05506896972656,
+                544.9505004882812,
+                519.8988647460938
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 37,
-            "summary": "Paragraph A imposes obligations for violations, while Paragraph B states there are no obligations under certain conditions.",
+            "summary": "Paragraph A imposes obligations on the Receiving Party, while Paragraph B states exceptions that negate those obligations.",
             "score": 1.2000000000000002
         },
         {
@@ -5335,11 +5457,21 @@
             "edge_score": null,
             "evidence_a": "any violation of this Article 14 by it or its Affiliate, or Subcontractors may cause substantial and irreparable harm",
             "evidence_b": "a Receiving Party shall have no obligations under this Article 14 with regard to any information of the Disclosing Party",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                149.35507202148438,
+                544.9501953125,
+                465.61163330078125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                119.05506896972656,
+                544.9505004882812,
+                519.8988647460938
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 37,
-            "summary": "Paragraph A imposes obligations for violations, while Paragraph B states there are no obligations under certain conditions.",
+            "summary": "Paragraph A imposes obligations on the Receiving Party, while Paragraph B states exceptions that negate those obligations.",
             "score": 1.2000000000000002
         },
         {
@@ -5350,17 +5482,17 @@
             "edge_type": "reference",
             "edge_score": null,
             "evidence_a": "Notwithstanding Section 15.1",
-            "evidence_b": "Notwithstanding Section 15.1",
+            "evidence_b": "either Party may, in addition to any other remedies available to it under this Agreement or by law, terminate this Agreement",
             "evidence_a_bbox": null,
             "evidence_b_bbox": [
                 50.04999923706055,
                 139.8854522705078,
-                544.9497680664062,
-                148.7229461669922
+                544.9505004882812,
+                514.8479614257812
             ],
             "evidence_a_page": 38,
             "evidence_b_page": 39,
-            "summary": "Paragraph B indicates termination rights that override the initial term established in Paragraph A.",
+            "summary": "Paragraph B allows termination despite the initial term stated in Paragraph A.",
             "score": 1.2000000000000002
         },
         {
@@ -5370,13 +5502,23 @@
             "confidence": 0.9,
             "edge_type": "semantic_similarity",
             "edge_score": 0.8511533737182617,
-            "evidence_a": "the provisions of this Agreement shall govern; provided, however, that the Quality Agreement shall govern in respect of quality issues.",
-            "evidence_b": "“Quality Agreement” means one or more written agreements between the Parties, incorporating all relevant quality assurance and quality control obligations",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a": "the Quality Agreement shall govern in respect of quality issues.",
+            "evidence_b": "the provisions of this Agreement shall govern",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                121.57929992675781,
+                544.9507446289062,
+                458.66680908203125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                141.7785186767578,
+                515.2809448242188,
+                150.6160125732422
+            ],
             "evidence_a_page": 5,
             "evidence_b_page": 12,
-            "summary": "Paragraph A defines the Quality Agreement while Paragraph B establishes precedence that conflicts with A's definition.",
+            "summary": "Paragraph A states the Quality Agreement governs quality issues, while Paragraph B states this Agreement governs in case of conflict.",
             "score": 1.2
         },
         {
@@ -5386,13 +5528,13 @@
             "confidence": 1.0,
             "edge_type": "semantic_similarity",
             "edge_score": 0.850380003452301,
-            "evidence_a": "The Parties agree that, except with respect to the Firm Zone and any additional conditions set forth in a given Module, a Monthly Forecast provided by Bellicum will not be binding upon both Parties.",
+            "evidence_a": "The Monthly Forecast shall show quantities forecasted on a monthly basis, and for the first (1) three (3) months shall state the desired dates of Delivery for the forecasted quantities.",
             "evidence_b": "A Quarterly Forecast provided by Bellicum will not be binding upon both Parties.",
             "evidence_a_bbox": [
                 50.04999923706055,
-                391.12322998046875,
-                544.9503173828125,
-                499.69805908203125
+                200.4855499267578,
+                544.9508666992188,
+                469.39825439453125
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
@@ -5402,7 +5544,7 @@
             ],
             "evidence_a_page": 18,
             "evidence_b_page": 18,
-            "summary": "Paragraph A states that the Monthly Forecast is binding for the Firm Zone, while Paragraph B states that the Quarterly Forecast is non-binding.",
+            "summary": "Paragraph A establishes binding commitments for monthly forecasts, while Paragraph B states quarterly forecasts are non-binding.",
             "score": 1.2
         },
         {
@@ -5412,13 +5554,13 @@
             "confidence": 1.0,
             "edge_type": "semantic_similarity",
             "edge_score": 0.850170910358429,
-            "evidence_a": "the corresponding portion of each subsequent Monthly Forecast shall be consistent with such period. For clarity, all forecasted quantities of Miltenyi Products during the Firm Zone shall constitute a binding commitment by Bellicum to submit corresponding Purchase Orders for Miltenyi Products.",
+            "evidence_a": "the Firm Zone shall be binding, and the corresponding portion of each subsequent Monthly Forecast shall be consistent with such period.",
             "evidence_b": "A Long Term Forecast provided by Bellicum will not be binding upon both Parties",
             "evidence_a_bbox": [
                 50.04999923706055,
-                370.92303466796875,
-                544.9505004882812,
-                389.86114501953125
+                119.05488586425781,
+                544.9506225585938,
+                489.59844970703125
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
@@ -5428,7 +5570,33 @@
             ],
             "evidence_a_page": 18,
             "evidence_b_page": 19,
-            "summary": "Paragraph A establishes binding commitments for the Firm Zone, while Paragraph B states that the Long-Term Forecast is non-binding.",
+            "summary": "Paragraph A establishes binding commitments for the Firm Zone, while Paragraph B states that Long-Term Forecasts are non-binding.",
+            "score": 1.2
+        },
+        {
+            "source": "118",
+            "target": "130",
+            "type": "scope",
+            "confidence": 1.0,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8208786845207214,
+            "evidence_a": "Miltenyi shall have sole responsibility for all activities in connection with the setup and approval of the Secondary Location",
+            "evidence_b": "Bellicum shall be primarily responsible, with Miltenyi’s reasonable cooperation and assistance",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                110.84834289550781,
+                544.9495239257812,
+                119.68584442138672
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                544.95068359375,
+                501.59259033203125
+            ],
+            "evidence_a_page": 24,
+            "evidence_b_page": 25,
+            "summary": "Paragraph A assigns sole responsibility to Miltenyi, while Paragraph B assigns primary responsibility to Bellicum.",
             "score": 1.2
         },
         {
@@ -5474,13 +5642,13 @@
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                526.8419799804688,
+                201.1173858642578,
                 544.94970703125,
                 535.6795043945312
             ],
             "evidence_a_page": 20,
             "evidence_b_page": 19,
-            "summary": "Paragraph A allows for flexibility in ordering, while Paragraph B imposes a firm obligation on Bellicum to order a minimum amount.",
+            "summary": "Paragraph A allows for flexibility in ordering, while Paragraph B imposes a firm obligation on the quantity.",
             "score": 1.1500000000000001
         },
         {
@@ -5498,10 +5666,15 @@
                 544.9502563476562,
                 258.56036376953125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                110.84785461425781,
+                544.9505615234375,
+                531.2605590820312
+            ],
             "evidence_a_page": 20,
             "evidence_b_page": 21,
-            "summary": "Paragraph A mandates written purchase orders while Paragraph B requires written requests for changes, implying a potential conflict in the process.",
+            "summary": "Paragraph A mandates written purchase orders while Paragraph B requires written requests for changes, implying a conflict in the process.",
             "score": 1.1500000000000001
         },
         {
@@ -5513,7 +5686,12 @@
             "edge_score": null,
             "evidence_a": "Bellicum shall not be required to pay any invoice with respect to any shipment of Miltenyi Products properly rejected pursuant to this Section 7.2.",
             "evidence_b": "Bellicum may not return or destroy any batch of Miltenyi Products until it receives written notification from Miltenyi that Miltenyi does not dispute that such batch fails to conform to the applicable Miltenyi Product Warranty.",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                100.74775695800781,
+                544.9506225585938,
+                494.64776611328125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 480.12957763671875,
@@ -5549,6 +5727,32 @@
             "evidence_a_page": 30,
             "evidence_b_page": 30,
             "summary": "Paragraph A states Bellicum's failure to pay is a material breach, while Paragraph B allows Bellicum to suspend payment for Miltenyi's failure.",
+            "score": 1.1500000000000001
+        },
+        {
+            "source": "191",
+            "target": "173",
+            "type": "deontic",
+            "confidence": 0.9,
+            "edge_type": "reference",
+            "edge_score": null,
+            "evidence_a": "In no event shall Miltenyi or its Affiliates be responsible or liable for any non-conformance or other defects in the Miltenyi Product(s)",
+            "evidence_b": "Miltenyi warrants and represents and covenants to Bellicum that Miltenyi Product Delivered hereunder will",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                228.2599639892578,
+                544.9501953125,
+                237.0974578857422
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                211.2174835205078,
+                169.35633850097656,
+                365.87384033203125
+            ],
+            "evidence_a_page": 34,
+            "evidence_b_page": 32,
+            "summary": "Paragraph A limits liability while Paragraph B asserts a warranty obligation.",
             "score": 1.1500000000000001
         },
         {
@@ -5592,10 +5796,15 @@
                 544.9501953125,
                 394.91009521484375
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                111.47920227050781,
+                544.950927734375,
+                519.2669067382812
+            ],
             "evidence_a_page": 34,
             "evidence_b_page": 27,
-            "summary": "Paragraph A states Miltenyi's obligation to remedy breaches, while Paragraph B restricts Bellicum's ability to return products.",
+            "summary": "Paragraph A states Miltenyi's obligation while Paragraph B restricts Bellicum's actions regarding product returns.",
             "score": 1.1500000000000001
         },
         {
@@ -5605,23 +5814,23 @@
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "Miltenyi’s sole obligation, and Bellicum’s sole and exclusive remedy for breach of the Miltenyi Product Warranty",
-            "evidence_b": "Bellicum’s rights to a refund or credit for, or to receive replacement of, properly rejected shipments of Miltenyi Products hereunder shall be Bellicum’s sole and exclusive remedy",
+            "evidence_a": "Miltenyi shall pay reasonable return freight and shipping charges.",
+            "evidence_b": "Bellicum shall not be required to pay any invoice with respect to any shipment of Miltenyi Products properly rejected",
             "evidence_a_bbox": [
                 50.04999923706055,
-                386.07257080078125,
-                544.9501953125,
-                394.91009521484375
+                406.90386962890625,
+                177.5625457763672,
+                415.74139404296875
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                240.8854522705078,
-                544.9500732421875,
-                249.7229461669922
+                139.2541046142578,
+                544.9494018554688,
+                148.0915985107422
             ],
             "evidence_a_page": 34,
             "evidence_b_page": 28,
-            "summary": "Both paragraphs claim to define the sole obligations and remedies, creating a conflict.",
+            "summary": "Miltenyi's obligation to pay shipping contradicts Bellicum's non-payment for rejected shipments.",
             "score": 1.1500000000000001
         },
         {
@@ -5631,13 +5840,23 @@
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "neither Party shall make any public announcement or press release regarding this Agreement",
-            "evidence_b": "the Disclosing Party shall be entitled to seek specific performance and other injunctive and equitable relief",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a": "the Disclosing Party shall be entitled to seek specific performance and other injunctive and equitable relief",
+            "evidence_b": "neither Party shall make any public announcement or press release regarding this Agreement",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                544.9505615234375,
+                533.1555786132812
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                546.8433837890625,
+                533.1555786132812
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 38,
-            "summary": "Paragraph A allows for legal remedies while Paragraph B restricts public disclosure, creating a conflict in obligations.",
+            "summary": "Paragraph A allows for specific performance in case of violation, while Paragraph B restricts public announcements, creating a conflict in obligations.",
             "score": 1.1500000000000001
         },
         {
@@ -5649,8 +5868,18 @@
             "edge_score": null,
             "evidence_a": "neither Party shall make any public announcement or press release regarding this Agreement",
             "evidence_b": "the Disclosing Party shall be entitled to seek specific performance and other injunctive and equitable relief",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                546.8433837890625,
+                533.1555786132812
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                544.9505615234375,
+                533.1555786132812
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 38,
             "summary": "Paragraph A allows for specific performance while Paragraph B restricts public announcements, creating a conflict in obligations.",
@@ -5665,11 +5894,21 @@
             "edge_score": null,
             "evidence_a": "neither Party shall make any public announcement or press release regarding this Agreement",
             "evidence_b": "the Disclosing Party shall be entitled to seek specific performance and other injunctive and equitable relief",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                546.8433837890625,
+                533.1555786132812
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                544.9505615234375,
+                533.1555786132812
+            ],
             "evidence_a_page": 38,
             "evidence_b_page": 38,
-            "summary": "Paragraph A allows for specific performance while Paragraph B restricts public announcements, creating a conflict in obligations.",
+            "summary": "Paragraph A allows for seeking relief while Paragraph B restricts public announcements, creating a conflict in obligations.",
             "score": 1.1500000000000001
         },
         {
@@ -5679,50 +5918,23 @@
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "Bellicum shall have consecutive separate options to extend the Term for successive renewal terms of five (5) years each",
-            "evidence_b": "Bellicum may terminate this Agreement or a particular Module upon ninety (90) days written notice to Miltenyi",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
-            "evidence_a_page": 38,
-            "evidence_b_page": 39,
-            "summary": "Paragraph A indicates an obligation to extend the term, while Paragraph B allows for termination, creating a conflict.",
-            "score": 1.1500000000000001
-        },
-        {
-            "source": "61",
-            "target": "171",
-            "type": "scope",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8526830077171326,
-            "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
-            "evidence_b": "Subcontractors shall not have the right to grant sublicenses under Miltenyi Technology",
-            "evidence_a_bbox": null,
+            "evidence_a": "The Agreement shall have an initial term of ten (10) years",
+            "evidence_b": "Bellicum may terminate this Agreement or a particular Module upon ninety (90) days written notice",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                503.48651123046875,
+                544.9496459960938,
+                512.3240356445312
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                180.9174346923828,
-                544.949951171875,
-                189.7549285888672
+                111.47920227050781,
+                544.9505004882812,
+                514.8479614257812
             ],
-            "evidence_a_page": 10,
-            "evidence_b_page": 32,
-            "summary": "Paragraph A implies that Bellicum can impose obligations on Subcontractors, while Paragraph B restricts Subcontractors from granting sublicenses.",
-            "score": 1.1500000000000001
-        },
-        {
-            "source": "117",
-            "target": "121",
-            "type": "scope",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8612797856330872,
-            "evidence_a": "Miltenyi shall determine, at its option and expense, to establish additional or alternative manufacturing and supply capability",
-            "evidence_b": "Bellicum shall have the option to request Miltenyi to establish, as soon as reasonably feasible and at Miltenyi’s sole cost and expense, a Secondary Location",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
-            "evidence_a_page": 23,
-            "evidence_b_page": 24,
-            "summary": "Miltenyi has the option to establish a Secondary Location, while Bellicum can request it, creating a conflict in decision authority.",
+            "evidence_a_page": 38,
+            "evidence_b_page": 39,
+            "summary": "Paragraph A establishes a fixed term of ten years, while Paragraph B allows for termination with 90 days notice, conflicting on the duration of the agreement.",
             "score": 1.1500000000000001
         },
         {
@@ -5748,7 +5960,7 @@
             ],
             "evidence_a_page": 34,
             "evidence_b_page": 35,
-            "summary": "Both paragraphs claim to define the sole obligations and remedies, creating a conflict in scope.",
+            "summary": "Both paragraphs assert sole obligations and remedies but reference different sections and conditions.",
             "score": 1.1500000000000001
         },
         {
@@ -5800,7 +6012,7 @@
             ],
             "evidence_a_page": 22,
             "evidence_b_page": 22,
-            "summary": "Paragraph A assigns shipment cost responsibility to Bellicum, while Paragraph B assigns it to Miltenyi for partial shipments.",
+            "summary": "Bellicum is responsible for shipment costs in A, while Miltenyi is responsible in B.",
             "score": 1.15
         },
         {
@@ -5812,7 +6024,12 @@
             "edge_score": 0.8424016237258911,
             "evidence_a": "Bellicum may not return or destroy any batch of Miltenyi Products until it receives written notification from Miltenyi",
             "evidence_b": "Bellicum shall promptly return the rejected batch of Miltenyi Products to Miltenyi",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                111.47920227050781,
+                544.950927734375,
+                519.2669067382812
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 100.74775695800781,
@@ -5821,7 +6038,7 @@
             ],
             "evidence_a_page": 27,
             "evidence_b_page": 28,
-            "summary": "Paragraph A prohibits return until notification, while Paragraph B mandates prompt return.",
+            "summary": "Paragraph A prohibits return until notification, while Paragraph B mandates return upon request.",
             "score": 1.15
         },
         {
@@ -5833,7 +6050,12 @@
             "edge_score": null,
             "evidence_a": "Purchase Price listed for each unit of a Miltenyi Product set forth on Exhibit E",
             "evidence_b": "EXHIBIT E Country Specific Product List Prices* (Year 2019)",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                101.37910461425781,
+                544.9506225585938,
+                507.27276611328125
+            ],
             "evidence_b_bbox": [
                 178.82501220703125,
                 162.0172882080078,
@@ -5847,18 +6069,28 @@
         },
         {
             "source": "159",
-            "target": "146",
+            "target": "161",
             "type": "numeric",
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
             "evidence_a": "a late fee equal to [...***...] percent ([...***...]%) per month",
-            "evidence_b": "a non-refundable upfront fee in the aggregate amount of two million Euro (€2,000,000)",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_b": "free and clear of any and all taxes, duties, levies, fees or other charges",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                101.37910461425781,
+                544.9508666992188,
+                473.81671142578125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                334.31024169921875,
+                544.9500732421875,
+                343.14776611328125
+            ],
             "evidence_a_page": 30,
-            "evidence_b_page": 28,
-            "summary": "Paragraph A discusses a late fee percentage, while Paragraph B specifies a fixed upfront fee amount.",
+            "evidence_b_page": 30,
+            "summary": "Paragraph A imposes a late fee, while Paragraph B states payments must be free of charges.",
             "score": 1.1
         },
         {
@@ -5868,18 +6100,23 @@
             "confidence": 0.9,
             "edge_type": "reference",
             "edge_score": null,
-            "evidence_a": "Confidential Information means any information disclosed by one Party (the “Disclosing Party”) to the other Party (the “Receiving Party”) pursuant to this Agreement which is (a) in written, graphic, machine readable or other tangible form and is marked “Confidential”",
+            "evidence_a": "Confidential Information means any information disclosed by one Party (the “Disclosing Party”) to the other Party (the “Receiving Party”) pursuant to this Agreement",
             "evidence_b": "a Receiving Party shall have no obligations under this Article 14 with regard to any information of the Disclosing Party which the Receiving Party can demonstrate through competent proof",
             "evidence_a_bbox": [
                 50.04999923706055,
-                129.7863311767578,
-                544.9498291015625,
-                138.6238250732422
+                119.05506896972656,
+                544.9505615234375,
+                519.8988647460938
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                119.05506896972656,
+                544.9505004882812,
+                519.8988647460938
+            ],
             "evidence_a_page": 37,
             "evidence_b_page": 37,
-            "summary": "Paragraph A defines exceptions to obligations regarding Confidential Information, while Paragraph B defines what constitutes Confidential Information, leading to a conflict in interpretation.",
+            "summary": "Paragraph A limits obligations regarding certain information, while Paragraph B defines what constitutes Confidential Information without exceptions.",
             "score": 1.1
         },
         {
@@ -5905,7 +6142,7 @@
             ],
             "evidence_a_page": 38,
             "evidence_b_page": 37,
-            "summary": "Paragraph A allows disclosure of the Agreement's terms, while Paragraph B defines Confidential Information as requiring confidentiality.",
+            "summary": "Paragraph A allows disclosure of the Agreement's terms, while Paragraph B defines Confidential Information as requiring specific marking or designation.",
             "score": 1.1
         },
         {
@@ -5917,11 +6154,21 @@
             "edge_score": null,
             "evidence_a": "two million Euro (€2,000,000) (the “Upfront Fee”)",
             "evidence_b": "all amounts paid under Sections 8.1 through 8.3 shall be non-refundable once paid.",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                131.0485382080078,
+                544.9503173828125,
+                149.9861297607422
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                170.1852569580078,
+                544.9506225585938,
+                406.90411376953125
+            ],
             "evidence_a_page": 40,
             "evidence_b_page": 28,
-            "summary": "Paragraph A states that all amounts paid are non-refundable, while Paragraph B specifies a non-refundable upfront fee, suggesting a potential conflict in payment terms.",
+            "summary": "The Upfront Fee is stated as non-refundable, while Paragraph A implies potential refunds under certain conditions.",
             "score": 1.1
         },
         {
@@ -5933,7 +6180,12 @@
             "edge_score": 0.8108631372451782,
             "evidence_a": "Nothing in this Agreement shall be construed as creating any relationship between Miltenyi and Bellicum other than that of seller and buyer, or licensor and licensee, respectively.",
             "evidence_b": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees, in writing, that are consistent with the corresponding limitations and obligations imposed on Bellicum hereunder.",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                101.37812805175781,
+                544.9505615234375,
+                501.59063720703125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 246.5666046142578,
@@ -5953,7 +6205,7 @@
             "edge_type": "semantic_similarity",
             "edge_score": 0.8626508712768555,
             "evidence_a": "Neither Party shall have any right, power, or authority to assume, create, or incur any expense, liability, or obligation, express or implied, on behalf of the other Party, except as expressly provided herein.",
-            "evidence_b": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum, materially consistent with the terms and conditions of this Agreement",
+            "evidence_b": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
             "evidence_a_bbox": [
                 50.04999923706055,
                 326.73358154296875,
@@ -5962,13 +6214,13 @@
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                346.93475341796875,
-                544.9500122070312,
-                355.77227783203125
+                102.00996398925781,
+                544.9505004882812,
+                560.2976684570312
             ],
             "evidence_a_page": 6,
             "evidence_b_page": 10,
-            "summary": "Paragraph A restricts Miltenyi's authority to create obligations, while Paragraph B mandates Miltenyi to enter into a supply agreement.",
+            "summary": "Paragraph A restricts Miltenyi's authority to act on behalf of Bellicum, while Paragraph B mandates Miltenyi to enter into agreements at Bellicum's request.",
             "score": 1.1
         },
         {
@@ -5979,8 +6231,13 @@
             "edge_type": "semantic_similarity",
             "edge_score": 0.8224998712539673,
             "evidence_a": "nothing herein is intended nor shall be construed as creating any exclusive arrangement",
-            "evidence_b": "rights granted to Bellicum hereunder (including Bellicum’s right to use each Miltenyi Product for its Permitted Use)",
-            "evidence_a_bbox": null,
+            "evidence_b": "Bellicum’s right to use each Miltenyi Product for its Permitted Use",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                316.00311279296875,
+                544.9501342773438,
+                363.34747314453125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 222.5783233642578,
@@ -5989,7 +6246,33 @@
             ],
             "evidence_a_page": 8,
             "evidence_b_page": 10,
-            "summary": "Paragraph A states no exclusive arrangement exists, while Paragraph B implies rights granted to Bellicum for exclusive use.",
+            "summary": "Paragraph A states no exclusive arrangement exists, while Paragraph B implies Bellicum has specific rights to use the products.",
+            "score": 1.1
+        },
+        {
+            "source": "61",
+            "target": "63",
+            "type": "scope",
+            "confidence": 0.9,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8376590013504028,
+            "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
+            "evidence_b": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                102.00996398925781,
+                544.9505004882812,
+                560.2976684570312
+            ],
+            "evidence_a_page": 10,
+            "evidence_b_page": 10,
+            "summary": "Paragraph A restricts Bellicum's rights with Subcontractors, while Paragraph B allows Bellicum to nominate Licensees for direct agreements with Miltenyi.",
             "score": 1.1
         },
         {
@@ -6001,7 +6284,12 @@
             "edge_score": 0.8015629649162292,
             "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
             "evidence_b": "Miltenyi shall not acquire any right, interest in or title to the Bellicum Technology",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 111.47993469238281,
@@ -6022,7 +6310,12 @@
             "edge_score": 0.8134586215019226,
             "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
             "evidence_b": "Miltenyi has got the right to grant non-exclusive sublicenses to third parties",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 196.0672149658203,
@@ -6031,7 +6324,7 @@
             ],
             "evidence_a_page": 10,
             "evidence_b_page": 49,
-            "summary": "Bellicum is required to impose limitations on Subcontractors, while Miltenyi has the right to grant sublicenses to third parties, creating a conflict in control over sublicensing.",
+            "summary": "Paragraph A restricts Bellicum's ability to share rights, while Paragraph B allows Miltenyi to grant sublicenses.",
             "score": 1.1
         },
         {
@@ -6043,7 +6336,12 @@
             "edge_score": 0.8414931297302246,
             "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
             "evidence_b": "Bellicum would agree to hold harmless and reimburse Miltenyi for the fees",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 288.229736328125,
@@ -6052,33 +6350,7 @@
             ],
             "evidence_a_page": 10,
             "evidence_b_page": 49,
-            "summary": "Paragraph A imposes obligations on Subcontractors, while Paragraph B suggests a separate agreement that may not include such obligations.",
-            "score": 1.1
-        },
-        {
-            "source": "62",
-            "target": "63",
-            "type": "scope",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8329646587371826,
-            "evidence_a": "any additional Licensee contemplating the use of Miltenyi Product(s)",
-            "evidence_b": "any Licensee nominated by Bellicum",
-            "evidence_a_bbox": [
-                50.04999923706055,
-                290.75408935546875,
-                544.9498291015625,
-                299.59161376953125
-            ],
-            "evidence_b_bbox": [
-                50.04999923706055,
-                346.93475341796875,
-                544.9500122070312,
-                355.77227783203125
-            ],
-            "evidence_a_page": 10,
-            "evidence_b_page": 10,
-            "summary": "Paragraph A refers to any additional Licensee, while Paragraph B specifies Licensees nominated by Bellicum.",
+            "summary": "Paragraph A imposes obligations on Subcontractors, while Paragraph B suggests a separate agreement with different obligations.",
             "score": 1.1
         },
         {
@@ -6088,18 +6360,23 @@
             "confidence": 0.9,
             "edge_type": "semantic_similarity",
             "edge_score": 0.8060444593429565,
-            "evidence_a": "(d) At the reasonable written request of Bellicum during the Term, Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
+            "evidence_a": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
             "evidence_b": "there are no agreements between Miltenyi and a Third Party that would impose any payment obligation on Bellicum",
             "evidence_a_bbox": [
                 50.04999923706055,
-                334.94158935546875,
-                544.9503173828125,
-                343.77911376953125
+                102.00996398925781,
+                544.9505004882812,
+                560.2976684570312
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                160.7172393798828,
+                65.20000457763672,
+                169.5547332763672
+            ],
             "evidence_a_page": 10,
             "evidence_b_page": 33,
-            "summary": "Paragraph A implies Miltenyi must enter agreements with Bellicum's Licensees, while Paragraph B states there are no such agreements imposing obligations on Bellicum.",
+            "summary": "Paragraph A implies a requirement for agreements with Licensees, while Paragraph B states there are no such agreements imposing obligations on Bellicum.",
             "score": 1.1
         },
         {
@@ -6111,7 +6388,12 @@
             "edge_score": 0.8239545822143555,
             "evidence_a": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
             "evidence_b": "Miltenyi has got the right to grant non-exclusive sublicenses to third parties",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                102.00996398925781,
+                544.9505004882812,
+                560.2976684570312
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 196.0672149658203,
@@ -6121,27 +6403,6 @@
             "evidence_a_page": 10,
             "evidence_b_page": 49,
             "summary": "Paragraph A requires Miltenyi to enter into agreements with Bellicum's Licensees, while Paragraph B allows Miltenyi to grant sublicenses to third parties.",
-            "score": 1.1
-        },
-        {
-            "source": "67",
-            "target": "174",
-            "type": "scope",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8233804702758789,
-            "evidence_a": "as published by Miltenyi from time to time",
-            "evidence_b": "Agreed Standards, the terms of this Agreement and other Applicable Laws",
-            "evidence_a_bbox": [
-                50.04999923706055,
-                389.23162841796875,
-                517.174560546875,
-                398.06915283203125
-            ],
-            "evidence_b_bbox": null,
-            "evidence_a_page": 11,
-            "evidence_b_page": 32,
-            "summary": "Paragraph A refers to Product Specifications published by Miltenyi, while Paragraph B refers to Agreed Standards and Applicable Laws, creating a scope conflict.",
             "score": 1.1
         },
         {
@@ -6159,10 +6420,15 @@
                 544.9500122070312,
                 120.31426239013672
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.37715148925781,
+                544.9505004882812,
+                500.32696533203125
+            ],
             "evidence_a_page": 13,
             "evidence_b_page": 13,
-            "summary": "Paragraph A requires Miltenyi's consent for changes, while Paragraph B allows for prompt implementation without consent under certain circumstances.",
+            "summary": "Paragraph A requires Miltenyi's consent for changes, while Paragraph B allows for changes without consent under certain circumstances.",
             "score": 1.1
         },
         {
@@ -6180,10 +6446,15 @@
                 544.9500732421875,
                 470.02716064453125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.37715148925781,
+                544.9508056640625,
+                523.0525512695312
+            ],
             "evidence_a_page": 13,
             "evidence_b_page": 14,
-            "summary": "Paragraph A mandates continued supply while Paragraph B negates the obligation to purchase after a change.",
+            "summary": "Paragraph A mandates supply of unchanged products, while Paragraph B states there is no obligation to purchase after changes.",
             "score": 1.1
         },
         {
@@ -6209,7 +6480,7 @@
             ],
             "evidence_a_page": 15,
             "evidence_b_page": 33,
-            "summary": "Paragraph A restricts use of products requiring approvals, while Paragraph B implies compliance with all applicable laws, potentially including those requiring approvals.",
+            "summary": "Paragraph A restricts use of products requiring approvals, while Paragraph B implies compliance with all Applicable Laws, potentially including those requiring approvals.",
             "score": 1.1
         },
         {
@@ -6261,7 +6532,7 @@
             ],
             "evidence_a_page": 15,
             "evidence_b_page": 49,
-            "summary": "Paragraph A restricts use of Miltenyi Products requiring approvals, while Paragraph B allows sublicensing for commercial purposes.",
+            "summary": "Paragraph A restricts use of Miltenyi Products requiring approvals, while Paragraph B allows sublicensing for commercialization.",
             "score": 1.1
         },
         {
@@ -6273,7 +6544,12 @@
             "edge_score": 0.8512767553329468,
             "evidence_a": "Miltenyi shall promptly inform Bellicum",
             "evidence_b": "Miltenyi shall use diligent and good faith efforts to Deliver before the desired Delivery date",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                201.1173858642578,
+                80.98125457763672,
+                209.9548797607422
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 389.22967529296875,
@@ -6283,6 +6559,32 @@
             "evidence_a_page": 19,
             "evidence_b_page": 20,
             "summary": "Miltenyi's obligation to inform Bellicum conflicts with its obligation to deliver before the desired date.",
+            "score": 1.1
+        },
+        {
+            "source": "93",
+            "target": "124",
+            "type": "deontic",
+            "confidence": 0.9,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8611106872558594,
+            "evidence_a": "Miltenyi shall promptly inform Bellicum",
+            "evidence_b": "if Miltenyi, using [...***...], fails to deliver",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                201.1173858642578,
+                80.98125457763672,
+                209.9548797607422
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                189.1237335205078,
+                544.949951171875,
+                197.9612274169922
+            ],
+            "evidence_a_page": 19,
+            "evidence_b_page": 25,
+            "summary": "Paragraph A mandates Miltenyi to inform Bellicum, while Paragraph B allows for failure to deliver without penalty under certain conditions.",
             "score": 1.1
         },
         {
@@ -6326,7 +6628,12 @@
                 544.9498901367188,
                 367.76641845703125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                220.0543975830078,
+                544.950439453125,
+                309.69171142578125
+            ],
             "evidence_a_page": 22,
             "evidence_b_page": 23,
             "summary": "Paragraph A allows for a delay of up to 10 days, while Paragraph B allows for a delay of up to 30 days.",
@@ -6343,14 +6650,19 @@
             "evidence_b": "Bellicum shall have the option to request Miltenyi to establish, as soon as reasonably feasible and at Miltenyi’s sole cost and expense, a Secondary Location",
             "evidence_a_bbox": [
                 50.04999923706055,
-                189.1227569580078,
-                544.9501342773438,
-                197.9602508544922
+                101.37910461425781,
+                544.9506225585938,
+                518.0042114257812
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                100.74824523925781,
+                544.9506225585938,
+                535.6795043945312
+            ],
             "evidence_a_page": 23,
             "evidence_b_page": 24,
-            "summary": "Paragraph A mandates Miltenyi to notify Bellicum of shortages, while Paragraph B allows Bellicum to request a Secondary Location, implying a lack of obligation on Miltenyi's part.",
+            "summary": "Paragraph A mandates Miltenyi to notify Bellicum of shortages, while Paragraph B allows Bellicum to request a Secondary Location, implying Miltenyi's obligation is conditional.",
             "score": 1.1
         },
         {
@@ -6380,6 +6692,32 @@
             "score": 1.1
         },
         {
+            "source": "117",
+            "target": "121",
+            "type": "deontic",
+            "confidence": 0.9,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8612797856330872,
+            "evidence_a": "Miltenyi shall determine, at its option and expense, to establish additional or alternative manufacturing and supply capability",
+            "evidence_b": "Bellicum shall have the option to request Miltenyi to establish, as soon as reasonably feasible and at Miltenyi’s sole cost and expense, a Secondary Location",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                160.0856475830078,
+                544.9506225585938,
+                518.0042114257812
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                100.74824523925781,
+                544.9506225585938,
+                535.6795043945312
+            ],
+            "evidence_a_page": 23,
+            "evidence_b_page": 24,
+            "summary": "Miltenyi has the option to establish a Secondary Location in A, while Bellicum can request it in B, creating a conflict in obligations.",
+            "score": 1.1
+        },
+        {
             "source": "145",
             "target": "193",
             "type": "deontic",
@@ -6388,7 +6726,12 @@
             "edge_score": 0.8548814654350281,
             "evidence_a": "Bellicum shall not be required to pay any invoice with respect to any shipment of Miltenyi Products properly rejected pursuant to this Section 7.2.",
             "evidence_b": "Miltenyi shall pay reasonable return freight and shipping charges.",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                100.74775695800781,
+                544.9506225585938,
+                494.64776611328125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 406.90386962890625,
@@ -6415,10 +6758,15 @@
                 544.9498901367188,
                 220.0549774169922
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                142.44850158691406,
+                543.6873168945312,
+                309.06103515625
+            ],
             "evidence_a_page": 32,
             "evidence_b_page": 49,
-            "summary": "Paragraph A denies any rights to use Miltenyi Technology, while Paragraph B suggests a sublicense is granted.",
+            "summary": "Paragraph A denies any sublicensing rights while Paragraph B states that a sublicense will be granted.",
             "score": 1.1
         },
         {
@@ -6430,7 +6778,12 @@
             "edge_score": 0.8261402249336243,
             "evidence_a": "Miltenyi hereby expressly disclaims any warranty that (i) the Miltenyi Products will be suitable for the development or manufacturing of a Bellicum Product",
             "evidence_b": "Miltenyi’s warranty under Section 11.2 does not relate to the potential uses of Miltenyi Products by Bellicum",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                130.4162139892578,
+                544.9508056640625,
+                515.4788208007812
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 287.59759521484375,
@@ -6439,28 +6792,7 @@
             ],
             "evidence_a_page": 34,
             "evidence_b_page": 34,
-            "summary": "Paragraph A disclaims any warranty regarding suitability for Bellicum Products, while Paragraph B discusses warranty in relation to potential uses.",
-            "score": 1.1
-        },
-        {
-            "source": "190",
-            "target": "196",
-            "type": "scope",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8391676545143127,
-            "evidence_a": "Miltenyi hereby expressly disclaims any warranty",
-            "evidence_b": "Miltenyi’s sole obligation with respect to claims that any Miltenyi Product fails to comply with the Miltenyi Product Warranty",
-            "evidence_a_bbox": [
-                50.04999923706055,
-                179.0226593017578,
-                544.949951171875,
-                187.8601531982422
-            ],
-            "evidence_b_bbox": null,
-            "evidence_a_page": 34,
-            "evidence_b_page": 35,
-            "summary": "Paragraph A disclaims all warranties while Paragraph B implies an obligation regarding warranties.",
+            "summary": "Paragraph A disclaims any warranty for suitability, while Paragraph B discusses warranty limitations regarding potential uses.",
             "score": 1.1
         },
         {
@@ -6497,17 +6829,22 @@
             "edge_type": "semantic_similarity",
             "edge_score": 0.8135215044021606,
             "evidence_a": "Miltenyi’s warranty under Section 11.2 does not relate to the potential uses of Miltenyi Products by Bellicum",
-            "evidence_b": "Miltenyi will not in any event be liable for increased manufacturing costs, downtime costs, purchase of substitute products",
+            "evidence_b": "Miltenyi’s sole obligation with respect to claims that any Miltenyi Product fails to comply with the Miltenyi Product Warranty or the warranties in Section 11.2",
             "evidence_a_bbox": [
                 50.04999923706055,
                 287.59759521484375,
                 544.9502563476562,
                 296.43511962890625
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.37886047363281,
+                544.9503784179688,
+                482.65386962890625
+            ],
             "evidence_a_page": 34,
             "evidence_b_page": 35,
-            "summary": "Paragraph A limits Miltenyi's warranty scope while Paragraph B implies liability under that warranty.",
+            "summary": "Paragraph A limits Miltenyi's warranty scope, while Paragraph B implies obligations under that warranty.",
             "score": 1.1
         },
         {
@@ -6525,7 +6862,12 @@
                 544.9503784179688,
                 406.90411376953125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                110.84883117675781,
+                544.9502563476562,
+                357.03594970703125
+            ],
             "evidence_a_page": 39,
             "evidence_b_page": 40,
             "summary": "Paragraph A states Bellicum must pay for products ordered before termination, while Paragraph B states it is not responsible for payments after termination.",
@@ -6546,7 +6888,12 @@
                 544.9500122070312,
                 463.71563720703125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
             "evidence_a_page": 9,
             "evidence_b_page": 10,
             "summary": "Paragraph A grants Bellicum the right to transfer products, while Paragraph B imposes a requirement to impose limitations before sharing rights.",
@@ -6560,8 +6907,13 @@
             "edge_type": "semantic_similarity",
             "edge_score": 0.8190430402755737,
             "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
-            "evidence_b": "Bellicum shall promptly notify Miltenyi in writing of any additional Licensee contemplating the use of Miltenyi Product(s)",
-            "evidence_a_bbox": null,
+            "evidence_b": "Bellicum shall promptly notify Miltenyi in writing of any additional Licensee contemplating the use",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 290.75408935546875,
@@ -6570,23 +6922,7 @@
             ],
             "evidence_a_page": 10,
             "evidence_b_page": 10,
-            "summary": "Paragraph A requires limitations on Subcontractors or Licensees, while Paragraph B allows for additional Licensees without prior limitations.",
-            "score": 1.05
-        },
-        {
-            "source": "61",
-            "target": "63",
-            "type": "deontic",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8376590013504028,
-            "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
-            "evidence_b": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
-            "evidence_a_page": 10,
-            "evidence_b_page": 10,
-            "summary": "Paragraph A imposes obligations on Bellicum regarding its Licensees, while Paragraph B requires Miltenyi to enter agreements with those same Licensees.",
+            "summary": "Paragraph A requires limitations on Subcontractors or Licensees, while Paragraph B allows for additional Licensees without such limitations.",
             "score": 1.05
         },
         {
@@ -6598,11 +6934,47 @@
             "edge_score": 0.8354855179786682,
             "evidence_a": "Bellicum shall first impose limitations and obligations on such Subcontractors or Licensees",
             "evidence_b": "Bellicum will be solely responsible for obtaining any required Regulatory Authority approvals or consents",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                146.1974639892578,
+                544.9505004882812,
+                548.3035278320312
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                100.74336242675781,
+                544.95068359375,
+                468.13067626953125
+            ],
             "evidence_a_page": 10,
             "evidence_b_page": 15,
-            "summary": "Paragraph A implies obligations on Subcontractors, while Paragraph B places sole responsibility on Bellicum for regulatory compliance.",
+            "summary": "Paragraph A implies obligations on Subcontractors, while Paragraph B places sole responsibility on Bellicum for regulatory approvals.",
+            "score": 1.05
+        },
+        {
+            "source": "62",
+            "target": "63",
+            "type": "deontic",
+            "confidence": 0.9,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8329646587371826,
+            "evidence_a": "Bellicum shall promptly notify Miltenyi in writing of any additional Licensee",
+            "evidence_b": "Miltenyi shall enter into a direct supply agreement for Miltenyi Products with any Licensee nominated by Bellicum",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                290.75408935546875,
+                544.9498291015625,
+                299.59161376953125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                102.00996398925781,
+                544.9505004882812,
+                560.2976684570312
+            ],
+            "evidence_a_page": 10,
+            "evidence_b_page": 10,
+            "summary": "Paragraph A mandates notification of additional Licensees, while Paragraph B allows Miltenyi to enter agreements only with Licensees nominated by Bellicum.",
             "score": 1.05
         },
         {
@@ -6639,17 +7011,22 @@
             "edge_type": "semantic_similarity",
             "edge_score": 0.8273175358772278,
             "evidence_a": "Miltenyi shall, in relation to Bellicum, at all times and in all respects continue to remain fully and primarily responsible and liable to Bellicum",
-            "evidence_b": "Miltenyi covenants that during the Term of this Agreement it will not enter into any obligation owed to a Third Party that would materially impair Miltenyi’s ability to perform its obligations under this Agreement",
-            "evidence_a_bbox": null,
+            "evidence_b": "Miltenyi covenants that during the Term of this Agreement it will not enter into any obligation owed to a Third Party that would materially impair Miltenyi’s ability to perform its obligations",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                114.00410461425781,
+                544.9505004882812,
+                471.92266845703125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                199.8546905517578,
+                160.7172393798828,
                 544.949462890625,
-                257.92974853515625
+                208.6921844482422
             ],
             "evidence_a_page": 10,
             "evidence_b_page": 33,
-            "summary": "Paragraph A imposes full responsibility on Miltenyi, while Paragraph B suggests potential limitations on that responsibility.",
+            "summary": "Paragraph A imposes full responsibility on Miltenyi, while Paragraph B allows for potential impairments to its obligations.",
             "score": 1.05
         },
         {
@@ -6661,7 +7038,12 @@
             "edge_score": 0.8099647760391235,
             "evidence_a": "Bellicum shall bear all responsibility for Bellicum’s or Bellicum Subcontractors’ use of information provided by Miltenyi",
             "evidence_b": "Miltenyi will not in any event be liable for increased manufacturing costs, downtime costs, purchase of substitute products, lost profits, revenue, or goodwill",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                129.7834014892578,
+                544.9506225585938,
+                499.06427001953125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 170.8163604736328,
@@ -6682,10 +7064,15 @@
             "edge_score": 0.8172885179519653,
             "evidence_a": "the Monthly Forecast shall show quantities forecasted on a monthly basis, and for the first (1) three (3) months shall state the desired dates of Delivery for the forecasted quantities.",
             "evidence_b": "the quantity of Miltenyi Product(s) forecasted for each Calendar Month of the Firm Zone of the most recent rolling Monthly Forecast... shall be binding on both Parties, commencing on the Effective Date of the Agreement (but not for the first three months thereto)",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                200.4855499267578,
+                544.9508666992188,
+                469.39825439453125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                516.7423706054688,
+                201.1173858642578,
                 544.9503784179688,
                 525.5798950195312
             ],
@@ -6701,9 +7088,14 @@
             "confidence": 0.9,
             "edge_type": "semantic_similarity",
             "edge_score": 0.8559515476226807,
-            "evidence_a": "Calendar Quarters immediately following the last month of such Calendar Quarter",
-            "evidence_b": "next three (3) consecutive Calendar Years",
-            "evidence_a_bbox": null,
+            "evidence_a": "each of the four (4) Calendar Quarters",
+            "evidence_b": "each of the next three (3) consecutive Calendar Years",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                440.36053466796875,
+                544.9501342773438,
+                449.19805908203125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 140.5167999267578,
@@ -6712,7 +7104,7 @@
             ],
             "evidence_a_page": 18,
             "evidence_b_page": 19,
-            "summary": "Paragraph A specifies quarterly forecasts while Paragraph B specifies annual forecasts, creating a conflict in the frequency of required forecasts.",
+            "summary": "Paragraph A requires quarterly forecasts while Paragraph B requires annual forecasts.",
             "score": 1.05
         },
         {
@@ -6722,9 +7114,14 @@
             "confidence": 0.9,
             "edge_type": "semantic_similarity",
             "edge_score": 0.8020946979522705,
-            "evidence_a": "Miltenyi shall promptly inform Bellicum",
-            "evidence_b": "Miltenyi and Bellicum shall in good faith agree to continue the supply commitment",
-            "evidence_a_bbox": null,
+            "evidence_a": "Miltenyi shall promptly inform Bellicum, and then, the Parties shall, in good faith, seek to agree on a revised date (or dates) for Delivery.",
+            "evidence_b": "Miltenyi and Bellicum shall in good faith agree to continue the supply commitment.",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                201.1173858642578,
+                80.98125457763672,
+                209.9548797607422
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 464.97869873046875,
@@ -6733,7 +7130,7 @@
             ],
             "evidence_a_page": 19,
             "evidence_b_page": 21,
-            "summary": "Paragraph A imposes an obligation on Miltenyi to inform Bellicum, while Paragraph B suggests a continuation of supply commitment only after reaching Minimum Purchases, creating a conflict in obligations.",
+            "summary": "Paragraph A implies a potential cancellation of the Purchase Order, while Paragraph B suggests a commitment to continue supply, creating a conflict.",
             "score": 1.05
         },
         {
@@ -6745,7 +7142,12 @@
             "edge_score": 0.8157564401626587,
             "evidence_a": "Miltenyi shall promptly inform Bellicum, and then, the Parties shall, in good faith, seek to agree on a revised date (or dates) for Delivery.",
             "evidence_b": "if Bellicum so consents to a variance in quantities actually Delivered (as compared to quantities set forth in an accepted Purchase Order), Bellicum shall only be invoiced and required to pay for the quantities of Miltenyi Product that Miltenyi actually Delivered",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                201.1173858642578,
+                80.98125457763672,
+                209.9548797607422
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 318.52850341796875,
@@ -6754,28 +7156,7 @@
             ],
             "evidence_a_page": 19,
             "evidence_b_page": 22,
-            "summary": "Paragraph A requires Miltenyi to inform and seek agreement for revised delivery dates, while Paragraph B allows Bellicum to only pay for delivered quantities, creating a conflict in obligations.",
-            "score": 1.05
-        },
-        {
-            "source": "93",
-            "target": "124",
-            "type": "numeric",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8611106872558594,
-            "evidence_a": "any desired quantity of Miltenyi Product pursuant to a Purchase Order",
-            "evidence_b": "fails to deliver to Bellicum at least [...***...]% (on a Miltenyi Product-by-Miltenyi Product basis)",
-            "evidence_a_bbox": null,
-            "evidence_b_bbox": [
-                50.04999923706055,
-                189.1237335205078,
-                544.9500732421875,
-                379.76104736328125
-            ],
-            "evidence_a_page": 19,
-            "evidence_b_page": 25,
-            "summary": "Paragraph A allows for any quantity while Paragraph B specifies a minimum percentage.",
+            "summary": "Paragraph A requires Miltenyi to inform and negotiate for revised delivery dates, while Paragraph B allows Bellicum to only pay for delivered quantities, creating a conflict in obligations.",
             "score": 1.05
         },
         {
@@ -6819,10 +7200,41 @@
                 544.9502563476562,
                 258.56036376953125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                110.84785461425781,
+                544.9505615234375,
+                531.2605590820312
+            ],
             "evidence_a_page": 20,
             "evidence_b_page": 21,
-            "summary": "Paragraph A mandates the submission of purchase orders, while Paragraph B requires written requests for changes, implying a potential conflict in the process.",
+            "summary": "Paragraph A mandates written purchase orders while Paragraph B requires written requests for changes, implying a conflict in the process.",
+            "score": 1.05
+        },
+        {
+            "source": "96",
+            "target": "108",
+            "type": "deontic",
+            "confidence": 0.9,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8026209473609924,
+            "evidence_a": "Bellicum shall order Miltenyi Products by submitting written purchase orders",
+            "evidence_b": "Bellicum shall be responsible for all arrangements regarding loading, shipment, insurance",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                249.7228546142578,
+                544.9502563476562,
+                258.56036376953125
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.37910461425781,
+                544.9508056640625,
+                455.51055908203125
+            ],
+            "evidence_a_page": 20,
+            "evidence_b_page": 22,
+            "summary": "Paragraph A mandates Bellicum to submit purchase orders, while Paragraph B implies Bellicum is responsible for shipment arrangements, creating a conflict in responsibilities.",
             "score": 1.05
         },
         {
@@ -6848,33 +7260,33 @@
             ],
             "evidence_a_page": 21,
             "evidence_b_page": 23,
-            "summary": "Paragraph A implies a continued supply commitment, while Paragraph B allows Bellicum to cancel orders, creating a conflict in obligations.",
+            "summary": "Paragraph A implies a continued supply commitment, while Paragraph B allows Bellicum to cancel orders, creating a conflict.",
             "score": 1.05
         },
         {
-            "source": "118",
-            "target": "130",
+            "source": "109",
+            "target": "139",
             "type": "deontic",
             "confidence": 0.9,
             "edge_type": "semantic_similarity",
-            "edge_score": 0.8208786845207214,
-            "evidence_a": "Miltenyi shall have sole responsibility for all activities in connection with the setup and approval of the Secondary Location",
-            "evidence_b": "Bellicum shall be primarily responsible, with Miltenyi’s reasonable cooperation and assistance, for providing proof of product equivalence",
+            "edge_score": 0.8090550899505615,
+            "evidence_a": "Bellicum will cause its carrier to verify the gross and visually observable physical integrity",
+            "evidence_b": "shipment of Miltenyi Product will promptly upon Delivery visually inspect each shipment",
             "evidence_a_bbox": [
                 50.04999923706055,
-                110.84834289550781,
-                544.9495239257812,
-                119.68584442138672
+                229.5226593017578,
+                544.9498901367188,
+                238.3601531982422
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                462.45477294921875,
-                544.9498291015625,
-                471.29229736328125
+                526.8419799804688,
+                544.9501953125,
+                535.6795043945312
             ],
-            "evidence_a_page": 24,
-            "evidence_b_page": 25,
-            "summary": "Paragraph A assigns sole responsibility to Miltenyi, while Paragraph B assigns primary responsibility to Bellicum.",
+            "evidence_a_page": 22,
+            "evidence_b_page": 26,
+            "summary": "Paragraph A mandates Bellicum to verify integrity, while Paragraph B implies a separate obligation to inspect.",
             "score": 1.05
         },
         {
@@ -6900,7 +7312,7 @@
             ],
             "evidence_a_page": 24,
             "evidence_b_page": 25,
-            "summary": "Paragraph A implies Miltenyi's consent is required for the Second-Source Supplier, while Paragraph B suggests conditions for qualification without clear consent.",
+            "summary": "Paragraph A requires Miltenyi's consent for the Second-Source Supplier, while Paragraph B implies conditions for qualification without mentioning consent.",
             "score": 1.05
         },
         {
@@ -6938,7 +7350,12 @@
             "edge_score": 0.8059107065200806,
             "evidence_a": "Bellicum shall have no recourse against Miltenyi in the event any such Miltenyi Product is subsequently deemed unsuitable for use for any reason",
             "evidence_b": "Bellicum shall be entitled, upon confirmation that such shipment failed to conform to the applicable Miltenyi Product Warranty, either, at Bellicum’s option: (i) to a refund or credit",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                111.47920227050781,
+                544.950927734375,
+                519.2669067382812
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 200.4850616455078,
@@ -7003,6 +7420,32 @@
             "score": 1.05
         },
         {
+            "source": "190",
+            "target": "196",
+            "type": "deontic",
+            "confidence": 0.9,
+            "edge_type": "semantic_similarity",
+            "edge_score": 0.8391676545143127,
+            "evidence_a": "Miltenyi hereby expressly disclaims any warranty",
+            "evidence_b": "Miltenyi’s sole obligation with respect to claims that any Miltenyi Product fails to comply with the Miltenyi Product Warranty",
+            "evidence_a_bbox": [
+                50.04999923706055,
+                179.0226593017578,
+                544.949951171875,
+                187.8601531982422
+            ],
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.37886047363281,
+                544.9503784179688,
+                482.65386962890625
+            ],
+            "evidence_a_page": 34,
+            "evidence_b_page": 35,
+            "summary": "Paragraph A disclaims all warranties while Paragraph B implies an obligation regarding warranties.",
+            "score": 1.05
+        },
+        {
             "source": "93",
             "target": "116",
             "type": "numeric",
@@ -7010,10 +7453,10 @@
             "edge_type": "semantic_similarity",
             "edge_score": 0.8109093904495239,
             "evidence_a": "if Miltenyi fails to propose a reasonably acceptable plan for the Delivery, Bellicum may, to be determined in Bellicum’s reasonable discretion and notwithstanding anything to the contrary in the Agreement, at its option, cancel the Purchase Order.",
-            "evidence_b": "if Miltenyi fails to propose a reasonably acceptable plan for the Delivery or if the delay is more than thirty (30) days following the confirmed Delivery Date, Bellicum may, at its reasonable election and notwithstanding anything to the contrary in the Agreement, cancel the Purchase Order(s) without penalty.",
+            "evidence_b": "If Miltenyi fails to propose a reasonably acceptable plan for the Delivery or if the delay is more than thirty (30) days following the confirmed Delivery Date, Bellicum may, at its reasonable election and notwithstanding anything to the contrary in the Agreement, cancel the Purchase Order(s) without penalty.",
             "evidence_a_bbox": [
                 50.04999923706055,
-                467.50408935546875,
+                201.1173858642578,
                 544.95068359375,
                 486.44219970703125
             ],
@@ -7035,44 +7478,23 @@
             "confidence": 0.9,
             "edge_type": "semantic_similarity",
             "edge_score": 0.8022410869598389,
-            "evidence_a": "at least [...***...] days in advance of the desired Delivery date specified in such Purchase Order",
+            "evidence_a": "no sooner than the applicable Lead Time(s) for the relevant Miltenyi Product(s)",
             "evidence_b": "within [...***...] Business Days of receipt of the Purchase Order from Bellicum",
             "evidence_a_bbox": [
                 50.04999923706055,
-                379.12908935546875,
-                544.9500732421875,
-                387.96661376953125
-            ],
-            "evidence_b_bbox": null,
-            "evidence_a_page": 20,
-            "evidence_b_page": 20,
-            "summary": "Paragraph A requires a longer advance notice than Paragraph B allows for acceptance.",
-            "score": 1.0
-        },
-        {
-            "source": "109",
-            "target": "139",
-            "type": "numeric",
-            "confidence": 0.9,
-            "edge_type": "semantic_similarity",
-            "edge_score": 0.8090550899505615,
-            "evidence_a": "Upon Delivery, Bellicum will cause its carrier to verify the gross and visually observable physical integrity",
-            "evidence_b": "Bellicum shall have a period of [...***...] days from the date of Delivery",
-            "evidence_a_bbox": [
-                50.04999923706055,
-                229.5226593017578,
-                544.9498901367188,
-                238.3601531982422
+                131.6798858642578,
+                544.95068359375,
+                496.54180908203125
             ],
             "evidence_b_bbox": [
                 50.04999923706055,
-                547.0421752929688,
-                537.3759155273438,
-                555.8796997070312
+                101.37910461425781,
+                544.95068359375,
+                506.64239501953125
             ],
-            "evidence_a_page": 22,
-            "evidence_b_page": 26,
-            "summary": "Paragraph A implies immediate verification upon delivery, while Paragraph B allows for a delay of several days.",
+            "evidence_a_page": 20,
+            "evidence_b_page": 20,
+            "summary": "Paragraph A specifies a lead time for Purchase Orders, while Paragraph B requires acceptance within a different timeframe, creating a conflict.",
             "score": 1.0
         },
         {
@@ -7098,7 +7520,7 @@
             ],
             "evidence_a_page": 22,
             "evidence_b_page": 25,
-            "summary": "Paragraph A specifies a delay threshold of 10 days, while Paragraph B introduces a percentage delivery threshold without a clear correlation.",
+            "summary": "Paragraph A specifies a delay threshold of 10 days, while Paragraph B introduces a percentage delivery threshold, creating a conflict in delivery obligations.",
             "score": 1.0
         },
         {
@@ -7116,7 +7538,12 @@
                 544.9506225585938,
                 279.39190673828125
             ],
-            "evidence_b_bbox": null,
+            "evidence_b_bbox": [
+                50.04999923706055,
+                101.38008117675781,
+                544.9507446289062,
+                501.59259033203125
+            ],
             "evidence_a_page": 23,
             "evidence_b_page": 25,
             "summary": "Paragraph A discusses failure to deliver specified quantities, while Paragraph B specifies a percentage threshold for failure.",
@@ -7131,7 +7558,12 @@
             "edge_score": 0.8297809362411499,
             "evidence_a": "more than thirty (30) days following the confirmed Delivery Date",
             "evidence_b": "within [...***...] days from the date of receipt of the relevant shipment of Miltenyi Product",
-            "evidence_a_bbox": null,
+            "evidence_a_bbox": [
+                50.04999923706055,
+                220.0543975830078,
+                544.950439453125,
+                309.69171142578125
+            ],
             "evidence_b_bbox": [
                 50.04999923706055,
                 201.1168975830078,

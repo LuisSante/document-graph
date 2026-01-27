@@ -133,8 +133,8 @@ async def process_document(
             ev_a = c["result"].get("evidence", {}).get("source", "")
             ev_b = c["result"].get("evidence", {}).get("target", "")
 
-            bbox_a = pdf_reader.get_text_bbox(source_node.text, ev_a, df_lines, source_node.page)
-            bbox_b = pdf_reader.get_text_bbox(target_node.text, ev_b, df_lines, target_node.page)
+            bbox_a = pdf_reader.get_text_bbox(ev_a, df_lines, source_node.page)
+            bbox_b = pdf_reader.get_text_bbox(ev_b, df_lines, target_node.page)
 
             final_contradictions.append(
                 Contradiction(

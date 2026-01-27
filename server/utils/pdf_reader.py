@@ -35,23 +35,45 @@ class PDFReader:
     ###             Read PDF                 ###
     ############################################
     
-    def get_text_bbox(self, full_text, evidence_snippet, df_lines, page_num):
-        if not evidence_snippet or len(evidence_snippet.strip()) < 3:
+    def clean_text(self, t):
+            return re.sub(r'[^a-zA-Z0-9]', '', t).lower()
+    
+    def get_text_bbox(self, evidence_snippet, df_lines, page_num):
+        if not evidence_snippet or not isinstance(evidence_snippet, str):
+            return None
+        
+        snippet = evidence_snippet.strip()
+        if len(snippet) < 3:
             return None
 
         page_lines = df_lines[df_lines['page'] == page_num].copy()
         if page_lines.empty:
             return None
 
-        snippet_clean = re.sub(r'\s+', ' ', evidence_snippet.strip().lower())
-        
+        snippet_clean = self.clean_text(snippet)
         matching_boxes = []
-        for _, line in page_lines.iterrows():
-            line_text = str(line['text']).strip().lower()
-            if not line_text: continue
 
-            if line_text in snippet_clean or snippet_clean in line_text or fuzz.partial_ratio(line_text, snippet_clean) > 90:
+        for _, line in page_lines.iterrows():
+            line_text = str(line['text'])
+            line_clean = self.clean_text(line_text)
+            
+            if not line_clean:
+                continue
+
+            if line_clean in snippet_clean or snippet_clean in line_clean:
                 matching_boxes.append([line['x0'], line['y0'], line['x1'], line['y1']])
+                continue
+
+            if fuzz.partial_ratio(line_clean, snippet_clean) > 90:
+                matching_boxes.append([line['x0'], line['y0'], line['x1'], line['y1']])
+
+        if not matching_boxes:
+            keywords = [self.clean_text(w) for w in snippet.split() if len(w) > 3]
+            for _, line in page_lines.iterrows():
+                line_clean = self.clean_text(str(line['text']))
+                matches = sum(1 for kw in keywords if kw in line_clean)
+                if matches >= 2:
+                    matching_boxes.append([line['x0'], line['y0'], line['x1'], line['y1']])
 
         if not matching_boxes:
             return None
@@ -61,7 +83,7 @@ class PDFReader:
         x1 = max(box[2] for box in matching_boxes)
         y1 = max(box[3] for box in matching_boxes)
 
-        return [x0, y0, x1, y1]
+        return [float(x0), float(y0), float(x1), float(y1)]
 
     def _allowed_file(self, filename):
         return "." in filename and filename.rsplit(".", 1)[1].lower() in self.ALLOWED_EXTENSIONS
