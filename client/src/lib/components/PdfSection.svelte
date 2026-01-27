@@ -199,7 +199,11 @@
 
 </script>
 
-<div class="h-full w-full overflow-auto bg-gray-50 flex flex-col items-center p-4 gap-4 relative">
+<!-- <div class="h-full w-full overflow-auto bg-gray-50 flex flex-col items-center p-4 gap-4 relative"> -->
+<div
+    class="h-full w-full overflow-auto bg-gray-50 flex flex-col items-center p-4 gap-4 relative"
+    style="direction: rtl;"
+>
     {#if !$pdfUrl}
         <div class="flex items-center justify-center text-gray-400 h-full w-full absolute">
             No document loaded
