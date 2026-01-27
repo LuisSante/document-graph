@@ -36,22 +36,30 @@ class PDFReader:
     ############################################
     
     def get_text_bbox(self, full_text, evidence_snippet, df_lines, page_num):
-        if not evidence_snippet or evidence_snippet.strip() == "":
+        if not evidence_snippet or len(evidence_snippet.strip()) < 3:
             return None
 
         page_lines = df_lines[df_lines['page'] == page_num].copy()
-        matching_lines = []
-        for _, line in page_lines.iterrows():
-            if line['text'] in evidence_snippet or evidence_snippet in line['text']:
-                matching_lines.append([line['x0'], line['y0'], line['x1'], line['y1']])
-        
-        if not matching_lines:
+        if page_lines.empty:
             return None
 
-        x0 = min(box[0] for box in matching_lines)
-        y0 = min(box[1] for box in matching_lines)
-        x1 = max(box[2] for box in matching_lines)
-        y1 = max(box[3] for box in matching_lines)
+        snippet_clean = re.sub(r'\s+', ' ', evidence_snippet.strip().lower())
+        
+        matching_boxes = []
+        for _, line in page_lines.iterrows():
+            line_text = str(line['text']).strip().lower()
+            if not line_text: continue
+
+            if line_text in snippet_clean or snippet_clean in line_text or fuzz.partial_ratio(line_text, snippet_clean) > 90:
+                matching_boxes.append([line['x0'], line['y0'], line['x1'], line['y1']])
+
+        if not matching_boxes:
+            return None
+
+        x0 = min(box[0] for box in matching_boxes)
+        y0 = min(box[1] for box in matching_boxes)
+        x1 = max(box[2] for box in matching_boxes)
+        y1 = max(box[3] for box in matching_boxes)
 
         return [x0, y0, x1, y1]
 
