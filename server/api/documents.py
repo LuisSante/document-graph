@@ -72,16 +72,6 @@ async def process_document(
 
         df_paragraphs, df_lines = pdf_reader.PDF_to_dataframe(tmp_path)
 
-        # logger.info("\n\n\n\n\n")
-
-        # logger.info(df_paragraphs)
-
-        # logger.info("\n\n\n\n\n")
-
-        # logger.info(df_lines)
-
-        # logger.info("\n\n\n\n\n")
-
         paragraphs = [
             Paragraph(
                 id=f"{index}",
