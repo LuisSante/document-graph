@@ -202,29 +202,22 @@
 <!-- <div class="h-full w-full overflow-auto bg-gray-50 flex flex-col items-center p-4 gap-4 relative"> -->
 <div
     class="h-full w-full overflow-auto bg-gray-50 flex flex-col items-center p-4 gap-4 relative"
-    style="direction: rtl;"
+    style="direction: rtl;" 
 >
-    {#if !$pdfUrl}
-        <div class="flex items-center justify-center text-gray-400 h-full w-full absolute">
-            No document loaded
-        </div>
-    {/if}
-
-    {#if loading}
-        <div class="absolute inset-0 flex items-center justify-center bg-white/50 z-20">
-            <span class="text-blue-600 font-medium">Loading PDF...</span>
-        </div>
-    {/if}
-    
-    {#if error}
-         <div class="flex items-center justify-center h-full text-red-500 w-full absolute">{error}</div>
-    {/if}
-
-    {#if pdfDoc}
-        {#each pages as pageNum (pageNum)}
-            <div class="shadow-lg bg-white relative">
-                <canvas use:renderPage={pageNum} on:click={(e) => handlePageClick(e, pageNum)}></canvas>
+    <div style="direction: ltr; width: 100%; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+        
+        {#if !$pdfUrl}
+            <div class="flex items-center justify-center text-gray-400 h-full w-full absolute">
+                No document loaded
             </div>
-        {/each}
-    {/if}
+        {/if}
+
+        {#if pdfDoc}
+            {#each pages as pageNum (pageNum)}
+                <div class="shadow-lg bg-white relative">
+                    <canvas use:renderPage={pageNum} on:click={(e) => handlePageClick(e, pageNum)}></canvas>
+                </div>
+            {/each}
+        {/if}
+    </div>
 </div>

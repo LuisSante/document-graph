@@ -2,7 +2,8 @@
 	import { 
 		selectedParagraph, 
 		paragraphs, 
-		relations 
+		relations,
+		paragraphPositions
 	} from '$lib/stores/document';
 	import type { Paragraph, ParagraphRelation } from '$lib/types/document';
 
@@ -42,35 +43,35 @@
 	{#if !$selectedParagraph}
 		<div class="text-gray-500">Select a paragraph to see its relations.</div>
 	{:else}
-		<div class="mb-4">
-			<div class="flex justify-between items-start mb-2">
+	
+		<div class="mb-6">
+			<div class="flex justify-between items-start mb-6">
 				<h3 class="font-bold">Selected Paragraph</h3>
 				<div class="flex flex-col gap-1 text-xs">
 					<div class="flex items-center gap-2">
-						<div class="w-3 h-3 bg-blue-100 border border-blue-800"></div>
+						<div class="w-3 h-3 bg-blue-200 border border-blue-800"></div>
 						<span>Reference</span>
 					</div>
 					<div class="flex items-center gap-2">
-						<div class="w-3 h-3 bg-green-100 border border-green-800"></div>
+						<div class="w-3 h-3 bg-green-300 border border-green-800"></div>
 						<span>Semantic Similarity</span>
 					</div>
 				</div>
 			</div>
-			<p class="text-sm text-gray-700 p-2 bg-gray-100 rounded">{$selectedParagraph.text}</p>
+			<p class="text-sm text-gray-700 p-3 bg-gray-100 rounded border-l-4 border-yellow-500">
+				{$selectedParagraph.text}
+			</p>
 		</div>
 
 		{#if relatedParagraphs.length > 0}
 			<div>
-				<h3 class="font-bold mb-2">Related Paragraphs</h3>
-				<div class="flex flex-col gap-2">
+				<h3 class="font-bold mb-3">Related Paragraphs</h3>
+				<div class="flex flex-col gap-3">
 					{#each relatedParagraphs as p}
 						<div
-							class="p-2 rounded text-sm"
-							class:bg-blue-100={p.relationType === 'reference'}
-							class:text-blue-800={p.relationType === 'reference'}
-							class:bg-green-100={p.relationType === 'semantic_similarity'}
-							class:text-green-800={p.relationType === 'semantic_similarity'}
+							class="p-3 rounded-lg text-sm transition-all border {p.relationType === 'reference' ? 'bg-blue-100 border-blue-200' : 'bg-green-100 border-green-200'}"
 						>
+							<span class="text-xs font-bold uppercase block mb-1 opacity-60">{p.relationType}</span>
 							{p.text}
 						</div>
 					{/each}
